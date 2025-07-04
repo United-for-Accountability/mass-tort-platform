@@ -4,11 +4,47 @@ import { useState } from 'react';
 
 export default function Sign() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    state: '',
+    email: '',
+    story: '',
+    affirmed: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Future: send to backend or Airtable
+    setSubmitted(false);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        console.error('❌ API error:', result);
+        setError('Submission failed. Please try again.');
+      }
+    } catch (err) {
+      console.error('❌ Submission failed:', err);
+      setError('Something went wrong.');
+    }
   };
 
   return (
@@ -21,27 +57,53 @@ export default function Sign() {
 
         {submitted ? (
           <div className="bg-green-100 text-green-800 p-4 rounded shadow">
-            Thank you. Your signature has been recorded. Every name matters.
+            ✅ Thank you. Your signature has been recorded. Every name matters.
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block font-semibold mb-1">Name <span className="text-red-600">*</span></label>
-              <input type="text" required className="w-full border px-4 py-2 rounded" />
+              <label className="block font-semibold mb-1">Name *</label>
+              <input
+                name="name"
+                type="text"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full border px-4 py-2 rounded"
+              />
             </div>
 
             <div>
               <label className="block font-semibold mb-1">State</label>
-              <input type="text" className="w-full border px-4 py-2 rounded" />
+              <input
+                name="state"
+                type="text"
+                value={formData.state}
+                onChange={handleChange}
+                className="w-full border px-4 py-2 rounded"
+              />
             </div>
 
             <div>
               <label className="block font-semibold mb-1">Email (for updates)</label>
-              <input type="email" className="w-full border px-4 py-2 rounded" />
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full border px-4 py-2 rounded"
+              />
             </div>
 
             <div className="flex items-start gap-2">
-              <input type="checkbox" required className="mt-1" />
+              <input
+                name="affirmed"
+                type="checkbox"
+                required
+                checked={formData.affirmed}
+                onChange={handleChange}
+                className="mt-1"
+              />
               <label>
                 I affirm I have experienced or witnessed harm under unjust policies and systems.
               </label>
@@ -49,7 +111,13 @@ export default function Sign() {
 
             <div>
               <label className="block font-semibold mb-1">Your Story (optional)</label>
-              <textarea rows={5} className="w-full border px-4 py-2 rounded resize-none" />
+              <textarea
+                name="story"
+                rows={5}
+                value={formData.story}
+                onChange={handleChange}
+                className="w-full border px-4 py-2 rounded resize-none"
+              />
             </div>
 
             <button
@@ -58,6 +126,12 @@ export default function Sign() {
             >
               🖊 Sign the Declaration
             </button>
+
+            {error && (
+              <div className="mt-4 text-red-600 font-medium">
+                {error}
+              </div>
+            )}
           </form>
         )}
       </main>
