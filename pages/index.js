@@ -52,33 +52,74 @@ export default function Home() {
             A government that allows harm from above and below cannot claim to represent the people. We demand accountability from both levels — not just in words, but in court.
           </p>
         </section>
-        <section style="background-color:#f8f9fa; padding: 60px 20px; text-align: center;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-size: 2.5rem; color: #222;">What About the Rights Not Written Down?</h2>
-    <p style="font-size: 1.2rem; color: #444; margin-top: 20px;">
+        
+<section style={{ backgroundColor: '#f8f9fa', padding: '60px 20px', textAlign: 'center' }}>
+  <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+    <h2 style={{ fontSize: '2.5rem', color: '#222' }}>
+      What About the Rights Not Written Down?
+    </h2>
+    <p style={{ fontSize: '1.2rem', color: '#444', marginTop: '20px' }}>
       The <strong>9th Amendment</strong> reminds us that our rights don’t end where the Constitution’s text stops. It tells us:
-      <br><em>"The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people."</em>
+      <br />
+      <em>
+        "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people."
+      </em>
     </p>
-    <p style="font-size: 1.1rem; color: #555; margin-top: 30px;">
+    <p style={{ fontSize: '1.1rem', color: '#555', marginTop: '30px' }}>
       Today, both government and corporations are working together to sidestep your constitutional protections. But your rights — to <strong>privacy</strong>, <strong>dignity</strong>, <strong>safe housing</strong>, <strong>health</strong>, and <strong>freedom from corporate control</strong> — still belong to you.
     </p>
 
-    <h3 style="margin-top: 40px; font-size: 1.5rem; color: #222;">
+    <h3 style={{ marginTop: '40px', fontSize: '1.5rem', color: '#222' }}>
       💬 What rights do <em>you</em> believe we hold — even if they’re not written?
     </h3>
-    <p style="color: #555; margin-bottom: 20px;">
+    <p style={{ color: '#555', marginBottom: '20px' }}>
       Help build the People’s Archive of Unenumerated Rights.
     </p>
 
-    <form action="https://formspree.io/f/your-form-id" method="POST" style="margin-top: 30px;">
-      <input type="text" name="name" placeholder="Your name (optional)" style="padding: 12px; width: 90%; max-width: 400px; margin-bottom: 15px;"><br>
-      <textarea name="right" placeholder="What right do you believe the people retain?" required style="padding: 12px; width: 90%; max-width: 600px; height: 120px;"></textarea><br>
-      <button type="submit" style="background-color: #0056b3; color: #fff; padding: 12px 30px; border: none; font-size: 1rem; cursor: pointer; border-radius: 5px; margin-top: 15px;">
+    <form action="https://formspree.io/f/your-form-id" method="POST" style={{ marginTop: '30px' }}>
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name (optional)"
+        style={{
+          padding: '12px',
+          width: '90%',
+          maxWidth: '400px',
+          marginBottom: '15px'
+        }}
+      />
+      <br />
+      <textarea
+        name="right"
+        placeholder="What right do you believe the people retain?"
+        required
+        style={{
+          padding: '12px',
+          width: '90%',
+          maxWidth: '600px',
+          height: '120px'
+        }}
+      />
+      <br />
+      <button
+        type="submit"
+        style={{
+          backgroundColor: '#0056b3',
+          color: '#fff',
+          padding: '12px 30px',
+          border: 'none',
+          fontSize: '1rem',
+          cursor: 'pointer',
+          borderRadius: '5px',
+          marginTop: '15px'
+        }}
+      >
         Submit to the Archive
       </button>
     </form>
   </div>
 </section>
+
   
 
         {/* Categories of Harm and Rights Section */}
