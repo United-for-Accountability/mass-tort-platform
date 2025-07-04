@@ -37,6 +37,19 @@ export default function Home() {
           <p className="mt-4 text-base text-gray-700 leading-relaxed">
             The 10th Amendment makes it clear: powers not granted to the federal government remain with the states and the people. This platform stands for restoring that balance — lawfully, peacefully, and powerfully.
           </p>
+          {/* Federal and State Complicity Section */}
+<section className="mt-12 bg-red-50 p-6 rounded-lg shadow border border-red-200">
+  <h2 className="text-2xl font-semibold mb-4 text-red-800">Complicity at All Levels: Federal and State Governments Have Failed to Protect the People</h2>
+  <p className="text-base text-gray-700 leading-relaxed">
+    We hold both the federal and state governments responsible for allowing systemic harm to continue unchecked. The federal government, created to serve the people and coordinate the states, has instead imposed mandates, protected monopolies, and failed to stop states from violating the rights of their residents.
+  </p>
+  <p className="mt-4 text-base text-gray-700 leading-relaxed">
+    Meanwhile, the states — sovereign entities designed to be protectors of their people — have been silent or complicit, allowing federal overreach and participating in harmful corporate-aligned laws and mandates. This dual failure is not just immoral — it's unconstitutional.
+  </p>
+  <p className="mt-4 text-base text-gray-700 leading-relaxed font-semibold italic">
+    A government that allows harm from above and below cannot claim to represent the people. We demand accountability from both levels — not just in words, but in court.
+  </p>
+
         </section>
       </main>
       <Footer />
