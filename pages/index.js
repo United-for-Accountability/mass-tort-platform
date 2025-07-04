@@ -24,6 +24,20 @@ export default function Home() {
         <a href="/sign" className="inline-block bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
           🖊 Sign the Declaration
         </a>
+
+        {/* State Sovereignty Section */}
+        <section className="mt-16 bg-gray-100 p-6 rounded-lg shadow">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-800">The Federal Government Was Created by the States — Not the Other Way Around</h2>
+          <p className="text-base text-gray-700 leading-relaxed">
+            We reject the false narrative that the federal government holds supreme power over the states or the people. The United States was founded on a principle of sovereign states voluntarily uniting under a limited federal structure. Over time, this balance has been violated.
+          </p>
+          <p className="mt-4 text-base text-gray-700 leading-relaxed">
+            From over-taxation and federal mandates that benefit for-profit insurance companies and banks, to distorted census data and forced toll roads — federal overreach has eroded local control and the public’s right to self-determination.
+          </p>
+          <p className="mt-4 text-base text-gray-700 leading-relaxed">
+            The 10th Amendment makes it clear: powers not granted to the federal government remain with the states and the people. This platform stands for restoring that balance — lawfully, peacefully, and powerfully.
+          </p>
+        </section>
       </main>
       <Footer />
     </>
