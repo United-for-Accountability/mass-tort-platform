@@ -14,6 +14,7 @@ export default function Home() {
         <meta property="og:url" content="https://www.unitedforaccountability.org/" />
         <meta property="og:image" content="/public/og-image.jpg" />
         <link rel="canonical" href="https://www.unitedforaccountability.org/" />
+        <meta name="google-site-verification" content="uIC3ruO2jzHCU2QSGLKdGYAg82jPZ4xuKU0IBmG_tbg" />
       </Head>
       <Navbar />
       <main className="px-6 py-16 max-w-3xl mx-auto text-center text-gray-800">
