@@ -27,6 +27,8 @@ export default function Sign() {
     setSubmitted(false);
     setError(null);
 
+    console.log("📤 Submitting formData:", formData);
+
     try {
       const res = await fetch('/api/submit', {
         method: 'POST',
@@ -35,10 +37,11 @@ export default function Sign() {
       });
 
       const result = await res.json();
+      console.log("✅ API response:", result);
+
       if (res.ok) {
         setSubmitted(true);
       } else {
-        console.error('❌ API error:', result);
         setError('Submission failed. Please try again.');
       }
     } catch (err) {
