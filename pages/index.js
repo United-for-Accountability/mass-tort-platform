@@ -37,19 +37,95 @@ export default function Home() {
           <p className="mt-4 text-base text-gray-700 leading-relaxed">
             The 10th Amendment makes it clear: powers not granted to the federal government remain with the states and the people. This platform stands for restoring that balance — lawfully, peacefully, and powerfully.
           </p>
-          {/* Federal and State Complicity Section */}
-<section className="mt-12 bg-red-50 p-6 rounded-lg shadow border border-red-200">
-  <h2 className="text-2xl font-semibold mb-4 text-red-800">Complicity at All Levels: Federal and State Governments Have Failed to Protect the People</h2>
-  <p className="text-base text-gray-700 leading-relaxed">
-    We hold both the federal and state governments responsible for allowing systemic harm to continue unchecked. The federal government, created to serve the people and coordinate the states, has instead imposed mandates, protected monopolies, and failed to stop states from violating the rights of their residents.
-  </p>
-  <p className="mt-4 text-base text-gray-700 leading-relaxed">
-    Meanwhile, the states — sovereign entities designed to be protectors of their people — have been silent or complicit, allowing federal overreach and participating in harmful corporate-aligned laws and mandates. This dual failure is not just immoral — it's unconstitutional.
-  </p>
-  <p className="mt-4 text-base text-gray-700 leading-relaxed font-semibold italic">
-    A government that allows harm from above and below cannot claim to represent the people. We demand accountability from both levels — not just in words, but in court.
-  </p>
+        </section>
 
+        {/* Federal and State Complicity Section */}
+        <section className="mt-12 bg-red-50 p-6 rounded-lg shadow border border-red-200">
+          <h2 className="text-2xl font-semibold mb-4 text-red-800">Complicity at All Levels: Federal and State Governments Have Failed to Protect the People</h2>
+          <p className="text-base text-gray-700 leading-relaxed">
+            We hold both the federal and state governments responsible for allowing systemic harm to continue unchecked. The federal government, created to serve the people and coordinate the states, has instead imposed mandates, protected monopolies, and failed to stop states from violating the rights of their residents.
+          </p>
+          <p className="mt-4 text-base text-gray-700 leading-relaxed">
+            Meanwhile, the states — sovereign entities designed to be protectors of their people — have been silent or complicit, allowing federal overreach and participating in harmful corporate-aligned laws and mandates. This dual failure is not just immoral — it's unconstitutional.
+          </p>
+          <p className="mt-4 text-base text-gray-700 leading-relaxed font-semibold italic">
+            A government that allows harm from above and below cannot claim to represent the people. We demand accountability from both levels — not just in words, but in court.
+          </p>
+        </section>
+
+        {/* Categories of Harm and Rights Section */}
+        <section className="mt-16 bg-white p-6 rounded-lg shadow border border-gray-200 text-left">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">The Harms We Face — And the Rights That Protect Us</h2>
+          <p className="text-base text-gray-700 mb-6">
+            Our country was founded on the idea that power belongs to the people. But across America, that power has been taken from us — through corporate greed, government inaction, and constitutional betrayal. Below are the major categories of harm we are documenting — and the rights we still hold that allow us to fight back.
+          </p>
+
+          <div className="space-y-6">
+            {/* Harm 1 */}
+            <div>
+              <h3 className="text-lg font-semibold text-blue-700">1. Federal Overreach & Violation of State Sovereignty</h3>
+              <p className="text-sm text-gray-700">
+                The federal government was created by the states — not to rule them, but to coordinate limited functions. Today, it imposes mandates, taxes, and forced corporate relationships (like for-profit insurance) that violate the 10th Amendment.
+              </p>
+            </div>
+
+            {/* Harm 2 */}
+            <div>
+              <h3 className="text-lg font-semibold text-blue-700">2. Private Equity Takeover of Essential Systems</h3>
+              <p className="text-sm text-gray-700">
+                From healthcare to housing, food to prisons — private equity firms have acquired essential infrastructure, driving prices up and compassion down. This is economic violence backed by policy silence.
+              </p>
+            </div>
+
+            {/* Harm 3 */}
+            <div>
+              <h3 className="text-lg font-semibold text-blue-700">3. Systemic Poverty, Wage Suppression, and Over-Taxation</h3>
+              <p className="text-sm text-gray-700">
+                We are taxed, tolled, and fined into poverty — while billionaires and corporations pay less than their share. This violates the Equal Protection Clause when the burden is unequally distributed by law.
+              </p>
+            </div>
+
+            {/* Harm 4 */}
+            <div>
+              <h3 className="text-lg font-semibold text-blue-700">4. Health and Housing Mandates That Serve Corporations</h3>
+              <p className="text-sm text-gray-700">
+                When the government forces you to buy from a for-profit company (like health or car insurance), that is not freedom — it is economic coercion. If we are required to comply, the option must be nonprofit.
+              </p>
+            </div>
+
+            {/* Harm 5 */}
+            <div>
+              <h3 className="text-lg font-semibold text-blue-700">5. Civil Rights Violations Across States</h3>
+              <p className="text-sm text-gray-700">
+                Homelessness is criminalized. Protesters are suppressed. People of color are policed differently. These are violations of the 1st, 4th, 8th, and 14th Amendments — and we have the right to challenge them under 42 U.S.C. § 1983.
+              </p>
+            </div>
+
+            {/* Harm 6 */}
+            <div>
+              <h3 className="text-lg font-semibold text-blue-700">6. Censorship, Digital Manipulation, and Media Consolidation</h3>
+              <p className="text-sm text-gray-700">
+                Media and tech giants shape what we see and believe. This affects elections, health decisions, and unity. The First Amendment protects our right to challenge narrative monopolies that suppress truth.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-base text-gray-800">
+            <h3 className="text-xl font-semibold mb-2 text-green-700">What We Can Do Together</h3>
+            <p>
+              When our rights are violated as a class of people — not just as individuals — we can file a <strong>mass tort</strong>. This is not just about compensation. It's about forcing change:
+            </p>
+            <ul className="list-disc list-inside mt-3 text-gray-700 space-y-2">
+              <li>Demanding the government provide nonprofit alternatives to corporate mandates</li>
+              <li>Exposing unconstitutional taxation and financial coercion</li>
+              <li>Restoring state and personal sovereignty through legal pressure</li>
+              <li>Holding corporate actors accountable in civil court for systemic harm</li>
+              <li>Creating a public record of injustice that cannot be denied</li>
+            </ul>
+            <p className="mt-4 font-semibold text-gray-900">
+              This is how we fight — not just for ourselves, but for future generations.
+            </p>
+          </div>
         </section>
       </main>
       <Footer />
