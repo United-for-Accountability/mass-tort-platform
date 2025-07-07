@@ -3,7 +3,11 @@ import { useState } from 'react';
 export default function AIAssistant() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'system', content: "Hi there. I’m here to help explain your rights, answer questions about this platform, and support your story submission. How can I assist you today?" }
+    {
+      role: 'system',
+      content:
+        "Hi there. I’m here to help explain your rights, answer questions about this platform, and support your story submission. How can I assist you today?",
+    },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,12 +22,32 @@ export default function AIAssistant() {
     const res = await fetch('/api/ai', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: newMessages })
+      body: JSON.stringify({ messages: newMessages }),
     });
 
     const data = await res.json();
-    setMessages([...newMessages, { role: 'assistant', content: data.reply }]);
+    const aiReply = data.reply;
+    const updatedMessages = [...newMessages, { role: 'assistant', content: aiReply }];
+    setMessages(updatedMessages);
     setLoading(false);
+
+    // 🚨 Check for a trigger phrase indicating a complete story
+    const trigger = "Thank you for sharing your story";
+    if (aiReply.toLowerCase().includes(trigger.toLowerCase())) {
+      try {
+        await fetch('/api/save-to-airtable', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            summary: aiReply,
+            submitted: true,
+          }),
+        });
+        console.log("✅ AI-generated story saved to Airtable.");
+      } catch (err) {
+        console.error("❌ Failed to save to Airtable:", err);
+      }
+    }
   };
 
   return (
@@ -57,7 +81,9 @@ export default function AIAssistant() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
             />
-            <button onClick={sendMessage} className="px-3 bg-blue-600 text-white text-sm">Send</button>
+            <button onClick={sendMessage} className="px-3 bg-blue-600 text-white text-sm">
+              Send
+            </button>
           </div>
         </div>
       )}
