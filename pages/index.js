@@ -18,14 +18,15 @@ export default function Home() {
       </Head>
       <Navbar />
       <main className="px-6 py-16 max-w-3xl mx-auto text-gray-800">
-        <div className="flex flex-col md:flex-row md:items-center md:gap-6">
-          <img
-            src="/images/united-for-accountability-logo.png"
-            alt="United for Accountability logo"
-            className="h-36 w-auto mx-auto mb-6 md:mx-0 md:mb-0"
-          />
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl font-bold mb-6">This Is Our Record. Our Resistance. Our Demand for Accountability.</h1>
+        <div className="text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+            <img
+              src="/images/united-for-accountability-logo.png"
+              alt="United for Accountability logo"
+              className="h-16 md:h-36 w-auto"
+            />
+            <h1 className="text-4xl font-bold">This Is Our Record. Our Resistance. Our Demand for Accountability.</h1>
+          </div>
             <p className="text-lg mb-8">
               We’re building this platform to prepare for a mass tort against systems that have caused nationwide harm — from private equity and corporate profiteering to unjust policies and systemic neglect. But this is bigger than a lawsuit. This is a collective stand — not for money, but for lasting change. It will take all of us to force a system to change that has stopped working for the people it’s supposed to serve. We are not powerless. We are united, and together, we will hold these systems accountable.
             </p>
@@ -36,8 +37,7 @@ export default function Home() {
                 className="h-6 w-auto mr-2"
               />
               🖊 Sign the Declaration
-            </a>
-          </div>
+          </a>
         </div>
 
         {/* State Sovereignty Section */}
