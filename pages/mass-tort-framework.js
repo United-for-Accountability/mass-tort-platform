@@ -2,6 +2,41 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Head from 'next/head';
 
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: "Master Framework for a National Mass Tort Campaign",
+  description:
+    "A constitutional, civil, and legal blueprint designed to hold federal, state, and institutional entities accountable for systemic harm. This framework supports a national mass tort rooted in the Public Trust Doctrine, Equal Protection, Due Process, and other federal and state laws.",
+  author: {
+    "@type": "Organization",
+    name: "United for Accountability",
+    url: "https://www.unitedforaccountability.org",
+  },
+  url: "https://www.unitedforaccountability.org/mass-tort-framework",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://www.unitedforaccountability.org/mass-tort-framework",
+  },
+  datePublished: "2025-07-30",
+  inLanguage: "en",
+  isAccessibleForFree: true,
+  license: "https://www.unitedforaccountability.org/declaration",
+  fileFormat: "application/pdf",
+  encodingFormat: "application/pdf",
+  keywords: [
+    "mass tort",
+    "constitutional rights",
+    "civil rights violations",
+    "public trust doctrine",
+    "equal protection",
+    "due process",
+    "federal lawsuit framework",
+    "systemic harm accountability",
+    "United for Accountability",
+  ],
+};
+
 const fullFramework = `
 United for Accountability: 
 Master Framework for a National Mass Tort Campaign
@@ -245,6 +280,10 @@ export default function MassTortFramework() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.unitedforaccountability.org/mass-tort-framework" />
         <link rel="canonical" href="https://www.unitedforaccountability.org/mass-tort-framework" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
       </Head>
 
       <Navbar />
