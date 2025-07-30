@@ -279,6 +279,20 @@ export default function MassTortFramework() {
         <meta property="og:description" content="Access the legal framework to expose systemic harm, special interest capture, and constitutional violations through a national mass tort." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.unitedforaccountability.org/mass-tort-framework" />
+        <meta
+          property="og:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mass Tort Framework | United for Accountability" />
+        <meta
+          name="twitter:description"
+          content="Mass Tort | Civil Rights | Justice Movement"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
         <link rel="canonical" href="https://www.unitedforaccountability.org/mass-tort-framework" />
         <script
           type="application/ld+json"

@@ -39,6 +39,31 @@ export default function Sign() {
     <>
       <Head>
         <title>Sign the Declaration | United for Accountability</title>
+        <meta
+          name="description"
+          content="Submit your story of harm and sign the United for Accountability Declaration to help build a powerful mass tort case."
+        />
+        <meta property="og:title" content="Sign the Declaration" />
+        <meta
+          property="og:description"
+          content="Submit your story of harm and sign the Declaration to help build a powerful mass tort case."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.unitedforaccountability.org/sign" />
+        <meta
+          property="og:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sign the Declaration | United for Accountability" />
+        <meta
+          name="twitter:description"
+          content="Mass Tort | Civil Rights | Justice Movement"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(signSchema) }}

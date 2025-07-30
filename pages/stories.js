@@ -16,6 +16,31 @@ export default function Stories() {
     <>
       <Head>
         <title>Stories of Harm | United for Accountability</title>
+        <meta
+          name="description"
+          content="Browse real stories submitted by people impacted by systemic injustice and learn why a united mass tort effort is needed."
+        />
+        <meta property="og:title" content="Stories of Harm" />
+        <meta
+          property="og:description"
+          content="Browse real stories submitted by people impacted by systemic injustice and learn why a united mass tort effort is needed."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.unitedforaccountability.org/stories" />
+        <meta
+          property="og:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Stories of Harm | United for Accountability" />
+        <meta
+          name="twitter:description"
+          content="Mass Tort | Civil Rights | Justice Movement"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(storiesSchema) }}
