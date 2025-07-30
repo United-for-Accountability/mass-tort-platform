@@ -17,14 +17,28 @@ export default function Home() {
         <meta name="google-site-verification" content="uIC3ruO2jzHCU2QSGLKdGYAg82jPZ4xuKU0IBmG_tbg" />
       </Head>
       <Navbar />
-      <main className="px-6 py-16 max-w-3xl mx-auto text-center text-gray-800">
-        <h1 className="text-4xl font-bold mb-6">This Is Our Record. Our Resistance. Our Demand for Accountability.</h1>
-        <p className="text-lg mb-8">
-          We’re building this platform to prepare for a mass tort against systems that have caused nationwide harm — from private equity and corporate profiteering to unjust policies and systemic neglect. But this is bigger than a lawsuit. This is a collective stand — not for money, but for lasting change. It will take all of us to force a system to change that has stopped working for the people it’s supposed to serve. We are not powerless. We are united, and together, we will hold these systems accountable.
-        </p>
-        <a href="/sign" className="inline-block bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
-          🖊 Sign the Declaration
-        </a>
+      <main className="px-6 py-16 max-w-3xl mx-auto text-gray-800">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-6">
+          <img
+            src="/images/united-for-accountability-logo.png"
+            alt="United for Accountability logo"
+            className="h-24 w-auto mx-auto mb-6 md:mx-0 md:mb-0"
+          />
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl font-bold mb-6">This Is Our Record. Our Resistance. Our Demand for Accountability.</h1>
+            <p className="text-lg mb-8">
+              We’re building this platform to prepare for a mass tort against systems that have caused nationwide harm — from private equity and corporate profiteering to unjust policies and systemic neglect. But this is bigger than a lawsuit. This is a collective stand — not for money, but for lasting change. It will take all of us to force a system to change that has stopped working for the people it’s supposed to serve. We are not powerless. We are united, and together, we will hold these systems accountable.
+            </p>
+            <a href="/sign" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
+              <img
+                src="/images/united-for-accountability-logo.png"
+                alt="United for Accountability logo"
+                className="h-6 w-auto mr-2"
+              />
+              🖊 Sign the Declaration
+            </a>
+          </div>
+        </div>
 
         {/* State Sovereignty Section */}
         <section className="mt-16 bg-gray-100 p-6 rounded-lg shadow">
