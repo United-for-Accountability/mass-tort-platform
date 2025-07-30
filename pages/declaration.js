@@ -20,6 +20,31 @@ export default function Declaration() {
     <>
       <Head>
         <title>The Declaration of Harm | United for Accountability</title>
+        <meta
+          name="description"
+          content="Read the Declaration of Harm that unites stories of injustice and calls for sweeping accountability across government and corporate systems."
+        />
+        <meta property="og:title" content="The Declaration of Harm" />
+        <meta
+          property="og:description"
+          content="Read the Declaration of Harm that unites stories of injustice and calls for sweeping accountability across government and corporate systems."
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.unitedforaccountability.org/declaration" />
+        <meta
+          property="og:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The Declaration of Harm | United for Accountability" />
+        <meta
+          name="twitter:description"
+          content="Mass Tort | Civil Rights | Justice Movement"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(declarationSchema) }}

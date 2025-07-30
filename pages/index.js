@@ -27,7 +27,23 @@ export default function Home() {
         <meta property="og:description" content="Join the growing mass tort movement to expose injustice and demand restitution." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.unitedforaccountability.org/" />
-        <meta property="og:image" content="/public/og-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="United for Accountability | Mass Tort Platform for Justice"
+        />
+        <meta
+          name="twitter:description"
+          content="We the Harmed. We the Healers. We the Force for Change. Join the growing movement to restore constitutional protections and demand justice."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.unitedforaccountability.org/images/united-for-accountability-logo.png"
+        />
         <link rel="canonical" href="https://www.unitedforaccountability.org/" />
         <meta name="google-site-verification" content="uIC3ruO2jzHCU2QSGLKdGYAg82jPZ4xuKU0IBmG_tbg" />
         <script
