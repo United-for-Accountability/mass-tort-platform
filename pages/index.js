@@ -2,6 +2,21 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Head from 'next/head';
 
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "United for Accountability - Mass Tort Platform for Justice",
+  description:
+    "Join United for Accountability's grassroots campaign to document systemic harm and demand structural reform through coordinated mass tort litigation.",
+  url: "https://www.unitedforaccountability.org/",
+  publisher: {
+    "@type": "Organization",
+    name: "United for Accountability",
+    logo:
+      "https://www.unitedforaccountability.org/images/united-for-accountability-logo.png",
+  },
+};
+
 export default function Home() {
   return (
     <>
@@ -15,6 +30,10 @@ export default function Home() {
         <meta property="og:image" content="/public/og-image.jpg" />
         <link rel="canonical" href="https://www.unitedforaccountability.org/" />
         <meta name="google-site-verification" content="uIC3ruO2jzHCU2QSGLKdGYAg82jPZ4xuKU0IBmG_tbg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
+        />
       </Head>
       <Navbar />
       <main className="px-6 py-16 max-w-3xl mx-auto text-gray-800">
