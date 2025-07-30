@@ -242,6 +242,65 @@ export default function Home() {
     </p>
   </div>
 </section>
+<section className="mt-16 bg-white p-6 rounded-lg shadow border border-gray-200 text-left">
+  <h2 className="text-2xl font-bold mb-4 text-gray-900">How We Will Do This</h2>
+  <p className="text-base text-gray-700 mb-4">We’re not just documenting harm — we’re building a legal force for accountability.</p>
+  <p className="text-base text-gray-700 mb-6">This is a nationwide effort to gather the truth, unify the harmed, and file a mass tort against those responsible for systemic injury — including government actors, institutions, and corporate profiteers.</p>
+  <div className="space-y-6">
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">1. We’re Gathering Stories</h3>
+      <p className="text-sm text-gray-700">Every story submitted becomes part of a legal dataset and public archive of harm. This isn’t symbolic — it’s evidence. It shows patterns, policies, and abuses that affect people across states and demographics. This evidence will support standing, intent, and damages in court.</p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">➡️ Submit your story of harm to be counted and included.</p>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">2. We’re Inviting Constitutional and Civil Rights Attorneys to Join</h3>
+      <p className="text-sm text-gray-700">We are assembling a network of civil rights, constitutional, and tort attorneys who understand that this case is not about money — it’s about structural change. Every attorney is asked to review and help build the legal arguments, draft complaints, and serve as representatives of collective harm.</p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">➡️ If you are an attorney, join the legal coalition.</p>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">3. We’re Naming the Defendants — Federal, State, Institutional, and Corporate</h3>
+      <p className="text-sm text-gray-700">This legal action targets federal overreach, state complicity, and institutional corporate capture. We are not filing against individuals — we are filing against systems that have allowed or profited from injustice.</p>
+      <ul className="list-disc list-inside mt-2 text-gray-700 text-sm">
+        <li>Federal Government – for mandates, coercion, and failure to protect</li>
+        <li>State Governments – for complicity and unconstitutional laws</li>
+        <li>Institutional Holders & PE Firms – for profiteering from essential services</li>
+        <li>Agencies & Contractors – where applicable (e.g., HUD, HHS, correctional firms)</li>
+      </ul>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">4. We’re Filing a Mass Tort — Not Just a Class Action</h3>
+      <p className="text-sm text-gray-700">This is not a class action where one injury is duplicated. This is a mass tort, where each person’s harm is unique but connected by pattern and cause. That gives us flexibility, broader reach, and a stronger chance at forcing systemic accountability.</p>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">5. We Will Present This in Court — But Also to the Public</h3>
+      <p className="text-sm text-gray-700">This platform is both legal and civic. We will:</p>
+      <ul className="list-disc list-inside mt-2 text-gray-700 text-sm">
+        <li>File lawsuits in key jurisdictions</li>
+        <li>Serve discovery and compel documents</li>
+        <li>Seek media coverage of systemic harm</li>
+        <li>Demand congressional hearings and public inquiries</li>
+        <li>Provide legal pathways for others to copy and expand</li>
+      </ul>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">6. We Will Push for Nonprofit Alternatives to Corporate Coercion</h3>
+      <p className="text-sm text-gray-700">Beyond courtrooms, this case demands policy reform. We will advocate for:</p>
+      <ul className="list-disc list-inside mt-2 text-gray-700 text-sm">
+        <li>Nonprofit healthcare options</li>
+        <li>Nonprofit utility structures</li>
+        <li>Transparent government accounting</li>
+        <li>Laws that prohibit mandatory profit-driven service participation</li>
+      </ul>
+      <p className="text-sm text-gray-700 mt-2">This is a legal AND legislative fight. You’re part of both.</p>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">7. This Is About Public Power — Not Political Parties</h3>
+      <p className="text-sm text-gray-700">No party owns this fight. We are harmed regardless of who is in office. This is a people-first movement — a coalition across beliefs, races, genders, and regions. We demand truth, accountability, and structural repair.</p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">🖋 Sign the Declaration. 📖 Submit Your Harm. ⚖️ Join the Legal Movement.</p>
+      <p className="text-sm text-gray-700 mt-2">Together, we are not just exposing the truth. We’re using it to reclaim justice.</p>
+    </div>
+  </div>
+</section>
 
       </main>
       <Footer />
