@@ -124,79 +124,111 @@ export default function Home() {
   
 
         {/* Categories of Harm and Rights Section */}
-        <section className="mt-16 bg-white p-6 rounded-lg shadow border border-gray-200 text-left">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">The Harms We Face — And the Rights That Protect Us</h2>
-          <p className="text-base text-gray-700 mb-6">
-            Our country was founded on the idea that power belongs to the people. But across America, that power has been taken from us — through corporate greed, government inaction, and constitutional betrayal. Below are the major categories of harm we are documenting — and the rights we still hold that allow us to fight back.
-          </p>
+<section className="mt-16 bg-white p-6 rounded-lg shadow border border-gray-200 text-left">
+  <h2 className="text-2xl font-bold mb-4 text-gray-900">The Harms We Face — And the Rights That Protect Us</h2>
+  <p className="text-base text-gray-700 mb-6">
+    Our country was founded on the idea that power belongs to the people. But across America, that power has been taken from us — through corporate greed, government inaction, and constitutional betrayal. Below are the major categories of harm we are documenting — and the rights we still hold that allow us to fight back.
+  </p>
 
-          <div className="space-y-6">
-            {/* Harm 1 */}
-            <div>
-              <h3 className="text-lg font-semibold text-blue-700">1. Federal Overreach & Violation of State Sovereignty</h3>
-              <p className="text-sm text-gray-700">
-                The federal government was created by the states — not to rule them, but to coordinate limited functions. Today, it imposes mandates, taxes, and forced corporate relationships (like for-profit insurance) that violate the 10th Amendment.
-              </p>
-            </div>
+  <div className="space-y-6">
+    {/* Harm 1 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">1. Federal Overreach & Violation of State Sovereignty</h3>
+      <p className="text-sm text-gray-700">
+        The federal government was created by the states — not to rule them, but to coordinate limited functions. Today, it imposes mandates, taxes, and forced corporate relationships (like for-profit insurance) that violate the 10th Amendment and strip states of their right to self-governance.
+      </p>
+    </div>
 
-            {/* Harm 2 */}
-            <div>
-              <h3 className="text-lg font-semibold text-blue-700">2. Private Equity Takeover of Essential Systems</h3>
-              <p className="text-sm text-gray-700">
-                From healthcare to housing, food to prisons — private equity firms have acquired essential infrastructure, driving prices up and compassion down. This is economic violence backed by policy silence.
-              </p>
-            </div>
+    {/* Harm 2 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">2. Private Equity Takeover of Essential Systems</h3>
+      <p className="text-sm text-gray-700">
+        From healthcare to housing, food to prisons — private equity firms have acquired essential infrastructure, driving prices up and compassion down. This is economic violence backed by policy silence.
+      </p>
+    </div>
 
-            {/* Harm 3 */}
-            <div>
-              <h3 className="text-lg font-semibold text-blue-700">3. Systemic Poverty, Wage Suppression, and Over-Taxation</h3>
-              <p className="text-sm text-gray-700">
-                We are taxed, tolled, and fined into poverty — while billionaires and corporations pay less than their share. This violates the Equal Protection Clause when the burden is unequally distributed by law.
-              </p>
-            </div>
+    {/* Harm 3 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">3. Systemic Poverty, Wage Suppression, and Over-Taxation</h3>
+      <p className="text-sm text-gray-700">
+        We are taxed, tolled, and fined into poverty — while billionaires and corporations pay less than their share. This violates the Equal Protection Clause when the burden is unequally distributed by law.
+      </p>
+    </div>
 
-            {/* Harm 4 */}
-            <div>
-              <h3 className="text-lg font-semibold text-blue-700">4. Health and Housing Mandates That Serve Corporations</h3>
-              <p className="text-sm text-gray-700">
-                When the government forces you to buy from a for-profit company (like health or car insurance), that is not freedom — it is economic coercion. If we are required to comply, the option must be nonprofit.
-              </p>
-            </div>
+    {/* Harm 4 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">4. Utilities, Tolls, and Forced Payments Without Representation</h3>
+      <p className="text-sm text-gray-700">
+        We pay for electricity, water, internet, toll roads, and public infrastructure — often to monopolies who overcharge or cut service. These systems are funded by our taxes and then leased to private corporations for profit. This is taxation without service, and privatization without accountability.
+      </p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">
+        👉 <a href="/utilities-harm" className="underline hover:text-blue-900">Submit Your Utility or Infrastructure Harm Story</a>
+      </p>
+    </div>
 
-            {/* Harm 5 */}
-            <div>
-              <h3 className="text-lg font-semibold text-blue-700">5. Civil Rights Violations Across States</h3>
-              <p className="text-sm text-gray-700">
-                Homelessness is criminalized. Protesters are suppressed. People of color are policed differently. These are violations of the 1st, 4th, 8th, and 14th Amendments — and we have the right to challenge them under 42 U.S.C. § 1983.
-              </p>
-            </div>
+    {/* Harm 5 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">5. Health and Housing Mandates That Serve Corporations</h3>
+      <p className="text-sm text-gray-700">
+        When the government forces you to buy from a for-profit company (like health or car insurance), that is not freedom — it is economic coercion. If we are required to comply, the option must be nonprofit, transparent, and accountable to the people.
+      </p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">
+        👉 <a href="/insurance-harm" className="underline hover:text-blue-900">Submit Your Insurance Harm Story</a>
+      </p>
+    </div>
 
-            {/* Harm 6 */}
-            <div>
-              <h3 className="text-lg font-semibold text-blue-700">6. Censorship, Digital Manipulation, and Media Consolidation</h3>
-              <p className="text-sm text-gray-700">
-                Media and tech giants shape what we see and believe. This affects elections, health decisions, and unity. The First Amendment protects our right to challenge narrative monopolies that suppress truth.
-              </p>
-            </div>
-          </div>
+    {/* Harm 6 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">6. 🚨 Mandatory Insurance Abuse and Denial of Rights</h3>
+      <p className="text-sm text-gray-700">
+        We are required by law to carry insurance — auto, health, business, homeowners — yet those same companies can deny coverage, raise rates, or drop us without warning. This is forced participation in a profit-driven system with no constitutional safeguards.
+      </p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">
+        👉 <a href="/insurance-harm" className="underline hover:text-blue-900">Submit Your Insurance Harm Story</a>
+      </p>
+    </div>
 
-          <div className="mt-8 text-base text-gray-800">
-            <h3 className="text-xl font-semibold mb-2 text-green-700">What We Can Do Together</h3>
-            <p>
-              When our rights are violated as a class of people — not just as individuals — we can file a <strong>mass tort</strong>. This is not just about compensation. It's about forcing change:
-            </p>
-            <ul className="list-disc list-inside mt-3 text-gray-700 space-y-2">
-              <li>Demanding the government provide nonprofit alternatives to corporate mandates</li>
-              <li>Exposing unconstitutional taxation and financial coercion</li>
-              <li>Restoring state and personal sovereignty through legal pressure</li>
-              <li>Holding corporate actors accountable in civil court for systemic harm</li>
-              <li>Creating a public record of injustice that cannot be denied</li>
-            </ul>
-            <p className="mt-4 font-semibold text-gray-900">
-              This is how we fight — not just for ourselves, but for future generations.
-            </p>
-          </div>
-        </section>
+    {/* Harm 7 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">7. Civil Rights Violations Across States</h3>
+      <p className="text-sm text-gray-700">
+        Homelessness is criminalized. Protesters are suppressed. People of color are policed differently. These are violations of the 1st, 4th, 8th, and 14th Amendments — and we have the right to challenge them under 42 U.S.C. § 1983.
+      </p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">
+        👉 <a href="/civil-rights" className="underline hover:text-blue-900">Submit Your Civil Rights Violation</a>
+      </p>
+    </div>
+
+    {/* Harm 8 */}
+    <div>
+      <h3 className="text-lg font-semibold text-blue-700">8. Censorship, Digital Manipulation, and Media Consolidation</h3>
+      <p className="text-sm text-gray-700">
+        Media and tech giants shape what we see and believe. This affects elections, health decisions, and unity. The First Amendment protects our right to challenge narrative monopolies that suppress truth.
+      </p>
+      <p className="text-sm text-blue-700 font-semibold mt-2">
+        👉 <a href="/media-censorship" className="underline hover:text-blue-900">Submit Your Experience with Digital Suppression</a>
+      </p>
+    </div>
+  </div>
+
+  <div className="mt-8 text-base text-gray-800">
+    <h3 className="text-xl font-semibold mb-2 text-green-700">What We Can Do Together</h3>
+    <p>
+      When our rights are violated as a class of people — not just as individuals — we can file a <strong>mass tort</strong>. This is not just about compensation. It's about forcing change:
+    </p>
+    <ul className="list-disc list-inside mt-3 text-gray-700 space-y-2">
+      <li>Demanding the government provide nonprofit alternatives to corporate mandates</li>
+      <li>Exposing unconstitutional taxation and financial coercion</li>
+      <li>Restoring state and personal sovereignty through legal pressure</li>
+      <li>Holding corporate actors accountable in civil court for systemic harm</li>
+      <li>Creating a public record of injustice that cannot be denied</li>
+    </ul>
+    <p className="mt-4 font-semibold text-gray-900">
+      This is how we fight — not just for ourselves, but for future generations.
+    </p>
+  </div>
+</section>
+
       </main>
       <Footer />
     </>
