@@ -7,6 +7,15 @@ import GuidedStoryHelper from '../components/GuidedStoryHelper';
 import DemographicForm from '../components/DemographicForm';
 import GuidedStoryAssistant from '../components/GuidedStoryAssistant';
 
+const signSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Sign the Declaration | United for Accountability",
+  description:
+    "Submit your story of harm and sign the United for Accountability Declaration to help build a powerful mass tort case.",
+  url: "https://www.unitedforaccountability.org/sign",
+};
+
 export default function Sign() {
   const [story, setStory] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -30,6 +39,10 @@ export default function Sign() {
     <>
       <Head>
         <title>Sign the Declaration | United for Accountability</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(signSchema) }}
+        />
       </Head>
 
       <Navbar />

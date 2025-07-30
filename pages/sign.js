@@ -5,6 +5,15 @@ import { useState } from 'react';
 import StoryAIHelper from '../components/StoryAIHelper';
 import GuidedStoryHelper from '../components/GuidedStoryHelper';
 
+const signSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Sign the Declaration | United for Accountability",
+  description:
+    "Share your story of harm and join the United for Accountability mass tort movement by signing the Declaration.",
+  url: "https://www.unitedforaccountability.org/sign",
+};
+
 export default function Sign() {
   const [story, setStory] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -59,6 +68,10 @@ export default function Sign() {
     <>
       <Head>
         <title>Sign the Declaration | United for Accountability</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(signSchema) }}
+        />
       </Head>
 
       <Navbar />
