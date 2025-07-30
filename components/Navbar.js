@@ -16,6 +16,7 @@ export default function Navbar() {
           <Link href="/sign" className="hover:underline">Sign</Link>
           <Link href="/stories" className="hover:underline">Stories</Link>
           <Link href="/declaration" className="hover:underline">Declaration</Link>
+          <Link href="/mass-tort-framework" className="hover:underline">Mass Tort Framework</Link>
         </div>
       </div>
     </nav>
