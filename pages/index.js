@@ -22,7 +22,7 @@ export default function Home() {
           <img
             src="/images/united-for-accountability-logo.png"
             alt="United for Accountability logo"
-            className="h-24 w-auto mx-auto mb-6 md:mx-0 md:mb-0"
+            className="h-36 w-auto mx-auto mb-6 md:mx-0 md:mb-0"
           />
           <div className="text-center md:text-left">
             <h1 className="text-4xl font-bold mb-6">This Is Our Record. Our Resistance. Our Demand for Accountability.</h1>
