@@ -65,6 +65,16 @@ export default function Home() {
             <p className="text-lg mb-8">
               We’re building this platform to prepare for a mass tort against systems that have caused nationwide harm — from private equity and corporate profiteering to unjust policies and systemic neglect. But this is bigger than a lawsuit. This is a collective stand — not for money, but for lasting change. It will take all of us to force a system to change that has stopped working for the people it’s supposed to serve. We are not powerless. We are united, and together, we will hold these systems accountable.
             </p>
+            <p className="font-bold mb-8">
+              When the Majority Speaks, the Constitution Must Listen.
+              <br />
+              With over half of the adult population asserting their retained rights under the 9th Amendment. This is not just a petition — it is a lawful, constitutional demand.
+              <br />
+              <br />
+              ✍️ Join the Declaration » <a href="/sign">/sign</a>
+              <br />
+              🧾 Every name helps restore the power of the people.
+            </p>
             <a href="/sign" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
               <img
                 src="/images/united-for-accountability-logo.png"
