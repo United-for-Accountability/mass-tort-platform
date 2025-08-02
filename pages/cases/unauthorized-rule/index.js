@@ -436,7 +436,7 @@ export default function UnauthorizedRule() {
     Even if you haven’t been directly harmed, your rights — and your future — are on the line. Add your name, tell your story, and take your place in the legal firewall.
   </p>
   <a
-    href="/declaration"
+    href="pages/cases/unauthorized-rule/declaration"
     className="inline-block bg-red-600 hover:bg-red-700 text-white text-lg font-semibold py-3 px-6 rounded shadow transition duration-200"
   >
     ✅ Sign the Declaration of Unauthorized Rule
