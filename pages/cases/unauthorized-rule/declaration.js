@@ -53,6 +53,43 @@ export default function DeclarationForm() {
           </form>
 
           <p id="formMessage" className="mt-6 text-sm text-green-600 hidden">Thank you for your declaration. It has been recorded.</p>
+
+          {/* 🌱 Why This Is Bigger Than Money */}
+          <div className="mt-16 border-t pt-10">
+            <h2 className="text-2xl font-bold text-green-700 mb-4">🌱 Why This Is Bigger Than Money</h2>
+            <p className="text-gray-800 text-lg mb-6">
+              We understand that people are struggling. That the system has pushed many to the edge — financially, emotionally, even spiritually. And yes, if this mass tort succeeds, it may result in financial damages for some plaintiffs.
+            </p>
+            <p className="text-gray-800 text-lg mb-6">
+              But this case is not just about that.
+            </p>
+            <p className="text-gray-800 text-lg mb-6">
+              This is about reclaiming what money can’t buy:
+            </p>
+            <ul className="list-disc ml-6 text-gray-700 text-base mb-6">
+              <li>Your right to live without fear of eviction, illness, or silence.</li>
+              <li>Your right to be represented by a government that actually serves you.</li>
+              <li>Your right to build a future — not just survive another year.</li>
+            </ul>
+            <p className="text-gray-800 text-lg mb-6">
+              By joining this movement, you are helping to:
+            </p>
+            <ul className="list-disc ml-6 text-gray-700 text-base mb-6">
+              <li>End government by corporate decree</li>
+              <li>Reassert the dignity of every human life</li>
+              <li>Force accountability into a system designed to forget you</li>
+            </ul>
+            <p className="text-gray-800 text-lg mb-6">
+              If we win — and we will — we don’t just get restitution.<br />
+              We get something deeper:<br />
+              <strong className="text-red-700">The chance to live a fulfilling life, free from systemic control.</strong><br />
+              The kind of life <em>you were always meant to live.</em>
+            </p>
+            <p className="text-lg text-red-700 font-semibold">
+              This is not a lawsuit for dollars.<br />
+              It’s a lawsuit for your future.
+            </p>
+          </div>
         </div>
       </main>
 
