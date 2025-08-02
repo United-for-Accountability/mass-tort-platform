@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import { db } from '../../../lib/firebase';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
