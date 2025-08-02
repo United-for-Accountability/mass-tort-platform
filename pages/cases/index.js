@@ -16,19 +16,24 @@ export default function Cases() {
 
       <main className="max-w-5xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold text-blue-900 mb-4">⚖️ The People’s Docket</h1>
-        <p className="text-lg text-gray-700 mb-10">
-          This is the living legal archive of active lawsuits led by <strong>United for Accountability</strong>. 
-          Each case is grounded in documented public harm, constitutional violations, and legal precedent. To assert our right as a unified force for change, we must hold and exercise the rights we retain — together.
-          <strong>The 9th Amendment was written for this very moment:</strong> When government fails, when institutions betray, when systems harm — the people have the lawful right to rise. 
-          <br />
-          <br /> 
-          <strong>Failing to use our rights is not neutrality. It is surrender.</strong>
-          <strong>And surrender is not what the Constitution intended.</strong>
-          <br />
-          <br />
-          The rights we do not use are the rights we silently waive — and in that silence, injustice grows.
-          <strong>But when we stand united, we do not just remember our rights — we activate them.</strong> 
-        </p>
+       <p className="text-lg text-gray-700 mb-10">
+       This is the living legal archive of active lawsuits led by <strong>United for Accountability</strong>. 
+       Each case is grounded in documented public harm, constitutional violations, and legal precedent. To assert our right as a unified force for change, we must hold and exercise the rights we retain — together.
+       <br />
+       <br />
+       <strong>The 9th Amendment was written for this very moment:</strong> When government fails, when institutions betray, when systems harm — the people have the lawful right to rise.
+       <br />
+       <br />
+       <strong>Failing to use our rights is not neutrality. It is surrender.</strong><br />
+       <strong>And surrender is not what the Constitution intended.</strong>
+       <br />
+       <br />
+       The rights we do not use are the rights we silently waive — and in that silence, injustice grows.
+       <br />
+       <br />
+       <strong>But when we stand united, we do not just remember our rights — we activate them.</strong>
+</p>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <CaseCard
