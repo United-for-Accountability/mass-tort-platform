@@ -71,8 +71,6 @@ export default function Home() {
               With over half of the adult population asserting their retained rights under the 9th Amendment. This is not just a petition — it is a lawful, constitutional demand.
               <br />
               <br />
-              ✍️ Join the Declaration » <a href="/sign">/sign</a>
-              <br />
               🧾 Every name helps restore the power of the people.
             </p>
             <a href="/sign" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
