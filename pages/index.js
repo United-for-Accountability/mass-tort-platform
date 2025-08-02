@@ -73,8 +73,10 @@ export default function Home() {
               <br />
               “When rights retained by the people are stripped from some, they are threatened for all. The Constitution does not protect silos of harm — it protects the public from systemic injury.”
               <br />
+              <br />  
               “The public itself has standing when constitutional systems, public resources, or human dignity are systemically undermined.”
               <br />
+              <br />  
               🧾 Every name helps restore the power of the people.
             </p>
             <a href="/sign" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
