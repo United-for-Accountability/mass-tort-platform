@@ -9,6 +9,7 @@
     "update-ai": "node scripts/update-ai-feed.js"
   },
   "dependencies": {
+    "firebase": "^12.0.0",
     "next": "13.4.12",
     "openai": "^4.104.0",
     "react": "18.2.0",
