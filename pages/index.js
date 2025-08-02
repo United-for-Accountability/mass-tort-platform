@@ -78,6 +78,7 @@ export default function Home() {
               <br />
               <br />  
               “The people retain the right under the 9th Amendment to defend inherent rights — whether threatened directly or structurally. We do not need to be the harmed to stand with the harmed. We need only be human, aware, and bound by the obligations of a constitutional democracy.”  
+              <br />
               <br />  
               🧾 Every name helps restore the power of the people.
             </p>
