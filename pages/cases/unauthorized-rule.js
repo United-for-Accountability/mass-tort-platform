@@ -16,6 +16,59 @@ export default function UnauthorizedRule() {
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-8 text-gray-800">
         <h1 className="text-4xl font-bold text-blue-900">Unauthorized Rule: A 9th Amendment Lawsuit to Stop the Return of Corporate-Controlled Government</h1>
 
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold mb-4">🛡️ Preamble: A Constitutional Demand for Accountability and Restoration</h2>
+          <p>We are not spectators to a broken system. We are its rightful stewards — and this is our line in the sand.</p>
+          <p>Our government is being reshaped in real time by forces that do not serve the people. Through deception, deregulation, and unchecked executive power, we are witnessing a transfer of governance from democratic process to private interest. This is not a partisan claim. It is a constitutional reality. And it requires a constitutional response.</p>
+          <p>We have the right — and the duty — to intervene.</p>
+          <p>This initiative is a legal and civic action grounded in the 9th Amendment and supported by civil rights law, public trust doctrine, and constitutional history. We are invoking these powers to stop unauthorized rule, document harm, and reclaim our government from those who have betrayed its purpose.</p>
+        </section>
+
+        <section className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">🧠 What This Is:</h3>
+            <ul className="list-disc list-inside space-y-2">
+              <li>A nationwide legal campaign to assert the people’s retained rights under the 9th Amendment</li>
+              <li>A mass tort filing to challenge unauthorized governance, systemic harm, and captured institutions</li>
+              <li>A public declaration of consent withdrawal against any actor who seeks to subvert lawful democracy</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">🛠️ What We Are Doing:</h3>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Collecting declarations of harm and lawful objections from across the nation</li>
+              <li>Organizing these declarations into a coordinated legal filing under 42 U.S.C. §§ 1983 and 1985</li>
+              <li>Demanding disqualification of unfit leaders under the 14th Amendment, Section 3</li>
+              <li>Preparing judicial accountability tools to expose, file against, and reform corrupted courts</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="text-xl font-semibold mb-2">📌 What You Can Do Now:</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            <ul className="list-disc list-inside mb-4 space-y-2">
+              <li>Read this framework in full — understand your rights, duties, and protections.</li>
+              <li>Submit your story or signature — even if you don’t feel directly harmed.</li>
+              <li>Share this movement — inform others that this is not a protest. It is a lawful correction.</li>
+              <li>Join the filing — as a plaintiff, supporter, or witness to history.</li>
+            </ul>
+            <div>
+              <p className="font-bold mb-4">We do not need to ask permission to defend our future.</p>
+              <p className="mb-4">When government fails, when institutions betray, when courts protect power instead of people —<br />
+                we do not consent.<br />
+                We organize. We file. We resist — lawfully.
+              </p>
+              <p>
+                This page is your legal roadmap.<br />
+                The Constitution is your authority.<br />
+                The 9th Amendment is your shield.<br />
+                And united, we are the firewall.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section>
           <h2 className="text-2xl font-bold mb-4">🧠 What the Reader Needs to Understand</h2>
 
