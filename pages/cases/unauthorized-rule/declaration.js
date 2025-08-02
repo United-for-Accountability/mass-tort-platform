@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { db } from '../../../lib/firebase';
 import Navbar from '../../../components/Navbar';
@@ -8,6 +9,7 @@ import Footer from '../../../components/Footer';
 export default function DeclarationForm() {
   const [formData, setFormData] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,6 +21,11 @@ export default function DeclarationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captchaToken) {
+      alert('Please verify the CAPTCHA before submitting.');
+      return;
+    }
 
     try {
       await addDoc(collection(db, 'declarations'), {
@@ -129,6 +136,11 @@ export default function DeclarationForm() {
               </label>
             </div>
 
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
+              onChange={(token) => setCaptchaToken(token)}
+              className="my-4"
+            />
             <button type="submit" className="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">
               ✅ Submit My Declaration
             </button>
