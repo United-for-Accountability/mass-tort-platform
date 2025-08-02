@@ -1,62 +1,95 @@
 import Head from 'next/head';
+import { useState } from 'react';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { db } from '../../../firebase';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
 export default function DeclarationForm() {
+  const [formData, setFormData] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await addDoc(collection(db, 'declarations'), {
+        ...formData,
+        submittedAt: Timestamp.now()
+      });
+      setSubmitted(true);
+      e.target.reset();
+    } catch (err) {
+      console.error('🔥 Error submitting declaration:', err);
+    }
+  };
+
   return (
     <>
       <Head>
         <title>Declaration of Unauthorized Rule | United for Accountability</title>
         <meta name="description" content="Sign the public declaration to lawfully reject unauthorized rule and defend your rights under the 9th Amendment." />
       </Head>
- <Navbar />
+
+      <Navbar />
 
       <main className="bg-gray-50 py-12 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-red-700 mb-6">✍️ Declaration of Unauthorized Rule</h1>
-          <p className="text-lg text-gray-700 mb-6">
-            You are joining a national legal action to assert your constitutional rights under the 9th Amendment. This declaration affirms that you do not consent to unauthorized rule and support legal action to defend democracy.
-          </p>
 
-          <form id="declarationForm" className="space-y-6 bg-white p-6 rounded-lg shadow-md">
+          {submitted && (
+            <p className="text-green-700 text-lg font-semibold mb-6">
+              ✅ Thank you! Your declaration has been recorded.
+            </p>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-md">
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name <span className="text-red-500">*</span></label>
-              <input type="text" id="fullName" name="fullName" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" required onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address <span className="text-red-500">*</span></label>
-              <input type="email" id="email" name="email" required className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address *</label>
+              <input type="email" id="email" name="email" required onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (optional)</label>
-              <input type="tel" id="phone" name="phone" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <input type="tel" id="phone" name="phone" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
-              <label htmlFor="location" className="block text-sm font-medium text-gray-700">City & State <span className="text-red-500">*</span></label>
-              <input type="text" id="location" name="location" required placeholder="City, State" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <label htmlFor="location" className="block text-sm font-medium text-gray-700">City & State *</label>
+              <input type="text" id="location" name="location" required placeholder="City, State" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
               <label htmlFor="address" className="block text-sm font-medium text-gray-700">Home Address (optional)</label>
-              <input type="text" id="address" name="address" placeholder="Street Address" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <input type="text" id="address" name="address" placeholder="Street Address" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
               <label htmlFor="race" className="block text-sm font-medium text-gray-700">Race / Ethnicity (optional)</label>
-              <input type="text" id="race" name="race" placeholder="e.g., Black, Latino, White, Asian, Indigenous..." className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <input type="text" id="race" name="race" placeholder="e.g., Black, Latino, White, Asian, Indigenous..." onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
               <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender Identity (optional)</label>
-              <input type="text" id="gender" name="gender" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <input type="text" id="gender" name="gender" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div>
               <label htmlFor="age" className="block text-sm font-medium text-gray-700">Age Range (optional)</label>
-              <select id="age" name="age" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500">
+              <select id="age" name="age" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                 <option value="">Select...</option>
                 <option>Under 18</option>
                 <option>18–24</option>
@@ -70,7 +103,7 @@ export default function DeclarationForm() {
 
             <div>
               <label htmlFor="income" className="block text-sm font-medium text-gray-700">Income Bracket (optional)</label>
-              <input type="text" id="income" name="income" placeholder="e.g., $0–25k, $25–50k..." className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+              <input type="text" id="income" name="income" placeholder="e.g., $0–25k, $25–50k..." onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
             </div>
 
             <div className="text-sm text-gray-600 bg-gray-100 p-4 rounded">
@@ -86,28 +119,21 @@ export default function DeclarationForm() {
 
             <div>
               <label htmlFor="statement" className="block text-sm font-medium text-gray-700">Why are you signing? (optional)</label>
-              <textarea id="statement" name="statement" rows="4" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" placeholder="Your personal thoughts or message..."></textarea>
+              <textarea id="statement" name="statement" rows="4" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Your personal thoughts or message..."></textarea>
             </div>
 
             <div className="flex items-start">
-              <div className="flex items-center h-5">
-                <input id="consent" name="consent" type="checkbox" required className="focus:ring-red-500 h-4 w-4 text-red-600 border-gray-300 rounded" />
-              </div>
-              <div className="ml-3 text-sm text-gray-700">
-                I affirm that this declaration is submitted voluntarily and may be used in a public-interest legal filing. I understand that my name will not be published without consent.
-              </div>
+              <input id="consent" name="consent" type="checkbox" required onChange={handleChange} className="h-4 w-4 text-red-600" />
+              <label htmlFor="consent" className="ml-2 text-sm text-gray-700">
+                I affirm this is voluntary and may be used in a legal filing.
+              </label>
             </div>
 
-            <div>
-              <button type="submit" className="w-full bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                ✅ Submit My Declaration
-              </button>
-            </div>
+            <button type="submit" className="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">
+              ✅ Submit My Declaration
+            </button>
           </form>
 
-          <p id="formMessage" className="mt-6 text-sm text-green-600 hidden">Thank you for your declaration. It has been recorded.</p>
-
-          {/* 🌱 Why This Is Bigger Than Money */}
           <div className="mt-16 border-t pt-10">
             <h2 className="text-2xl font-bold text-green-700 mb-4">🌱 Why This Is Bigger Than Money</h2>
             <p className="text-gray-800 text-lg mb-6">
@@ -146,15 +172,7 @@ export default function DeclarationForm() {
         </div>
       </main>
 
-      <script>
-        {`
-          document.getElementById('declarationForm')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('formMessage')?.classList.remove('hidden');
-            e.target.reset();
-          });
-        `}
-      </script>
+      <Footer />
     </>
   );
 }
