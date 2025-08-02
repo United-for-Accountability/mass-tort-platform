@@ -20,10 +20,12 @@ export default function Cases() {
           This is the living legal archive of active lawsuits led by <strong>United for Accountability</strong>. 
           Each case is grounded in documented public harm, constitutional violations, and legal precedent. To assert our right as a unified force for change, we must hold and exercise the rights we retain — together.
           <strong>The 9th Amendment was written for this very moment:</strong> When government fails, when institutions betray, when systems harm — the people have the lawful right to rise. 
-            
+          <br />
+          <br /> 
           <strong>Failing to use our rights is not neutrality. It is surrender.</strong>
           <strong>And surrender is not what the Constitution intended.</strong>
-
+          <br />
+          <br />
           The rights we do not use are the rights we silently waive — and in that silence, injustice grows.
           <strong>But when we stand united, we do not just remember our rights — we activate them.</strong> 
         </p>
