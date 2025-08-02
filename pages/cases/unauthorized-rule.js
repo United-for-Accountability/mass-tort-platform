@@ -15,6 +15,11 @@ export default function UnauthorizedRule() {
 
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-8 text-gray-800">
         <h1 className="text-4xl font-bold text-blue-900">Unauthorized Rule: A 9th Amendment Lawsuit to Stop the Return of Corporate-Controlled Government</h1>
+        <img
+          src="/images/no-kings.png"
+          alt="No Kings"
+          className="mx-auto my-4"
+        />
 
         <section className="space-y-4">
           <h2 className="text-2xl font-bold mb-4">🛡️ Preamble: A Constitutional Demand for Accountability and Restoration</h2>
@@ -68,26 +73,7 @@ export default function UnauthorizedRule() {
               </p>
             </div>
           </div>
-=======
-          <ul className="list-disc list-inside mb-4 space-y-2">
-            <li>Read this framework in full — understand your rights, duties, and protections.</li>
-            <li>Submit your story or signature — even if you don’t feel directly harmed.</li>
-            <li>Share this movement — inform others that this is not a protest. It is a lawful correction.</li>
-            <li>Join the filing — as a plaintiff, supporter, or witness to history.</li>
-          </ul>
-          <p className="mb-4">We do not need to ask permission to defend our future.</p>
-          <p className="mb-4">When government fails, when institutions betray, when courts protect power instead of people —<br />
-            we do not consent.<br />
-            We organize. We file. We resist — lawfully.
-          </p>
-          <p>
-            This page is your legal roadmap.<br />
-            The Constitution is your authority.<br />
-            The 9th Amendment is your shield.<br />
-            And united, we are the firewall.
-          </p>
-
-        </section>
+          </section>
 
         <section>
           <h2 className="text-2xl font-bold mb-4">🧠 What the Reader Needs to Understand</h2>
