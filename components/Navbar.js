@@ -6,6 +6,7 @@ export default function Navbar() {
 
   const links = (
     <>
+      <Link href="/cases" className="hover:underline">The People's Docket</Link>
       <Link href="/sign" className="hover:underline">Sign</Link>
       <Link href="/stories" className="hover:underline">Stories</Link>
       <Link href="/declaration" className="hover:underline">Declaration</Link>
