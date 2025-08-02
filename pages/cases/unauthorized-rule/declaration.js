@@ -28,7 +28,7 @@ export default function DeclarationForm() {
     }
 
     try {
-      await addDoc(collection(db, 'declarations'), {
+      await addDoc(collection(db, 'DeclarationOfUnauthorizedRule'), {
         ...formData,
         submittedAt: Timestamp.now()
       });
