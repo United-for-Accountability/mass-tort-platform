@@ -9,6 +9,7 @@
     "update-ai": "node scripts/update-ai-feed.js"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "firebase": "^12.0.0",
     "next": "13.4.12",
     "openai": "^4.104.0",
