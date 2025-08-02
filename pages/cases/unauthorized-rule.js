@@ -46,6 +46,7 @@ export default function UnauthorizedRule() {
 
         <section>
           <h3 className="text-xl font-semibold mb-2">📌 What You Can Do Now:</h3>
+
           <div className="grid md:grid-cols-2 gap-8">
             <ul className="list-disc list-inside mb-4 space-y-2">
               <li>Read this framework in full — understand your rights, duties, and protections.</li>
@@ -67,6 +68,25 @@ export default function UnauthorizedRule() {
               </p>
             </div>
           </div>
+=======
+          <ul className="list-disc list-inside mb-4 space-y-2">
+            <li>Read this framework in full — understand your rights, duties, and protections.</li>
+            <li>Submit your story or signature — even if you don’t feel directly harmed.</li>
+            <li>Share this movement — inform others that this is not a protest. It is a lawful correction.</li>
+            <li>Join the filing — as a plaintiff, supporter, or witness to history.</li>
+          </ul>
+          <p className="mb-4">We do not need to ask permission to defend our future.</p>
+          <p className="mb-4">When government fails, when institutions betray, when courts protect power instead of people —<br />
+            we do not consent.<br />
+            We organize. We file. We resist — lawfully.
+          </p>
+          <p>
+            This page is your legal roadmap.<br />
+            The Constitution is your authority.<br />
+            The 9th Amendment is your shield.<br />
+            And united, we are the firewall.
+          </p>
+
         </section>
 
         <section>
