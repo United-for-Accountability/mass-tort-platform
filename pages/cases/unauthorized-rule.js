@@ -35,6 +35,7 @@ export default function UnauthorizedRule() {
           </ul>
           <p className="mb-4">💡 The 9th is the people’s emergency brake.</p>
 
+
           <h3 className="text-xl font-semibold mt-8 mb-2">⚖️ The Legal Rights That Protect Our Power to Intervene</h3>
           <p className="mb-4">
             Purpose: Make it undeniable that what we're doing is legal, lawful, and grounded in historical precedent — not
