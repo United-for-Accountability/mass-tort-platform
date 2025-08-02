@@ -9,6 +9,7 @@ export default function DeclarationForm() {
         <title>Declaration of Unauthorized Rule | United for Accountability</title>
         <meta name="description" content="Sign the public declaration to lawfully reject unauthorized rule and defend your rights under the 9th Amendment." />
       </Head>
+ <Navbar />
 
       <main className="bg-gray-50 py-12 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto">
