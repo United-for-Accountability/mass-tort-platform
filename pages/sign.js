@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 import StoryAIHelper from '../components/StoryAIHelper';
 import GuidedStoryHelper from '../components/GuidedStoryHelper';
 import { db } from '../lib/firebase';
@@ -20,6 +21,9 @@ export default function Sign() {
   const [story, setStory] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [mode, setMode] = useState(''); // '' | 'ai' | 'guided'
+
+  const recaptchaRef = useRef(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -44,7 +48,11 @@ export default function Sign() {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = await recaptchaRef.current.executeAsync();
+    setCaptchaToken(token);
+
     if (!story.trim() || !formData.name || !formData.email) {
       alert('Please complete the story and required fields.');
       return;
@@ -53,6 +61,7 @@ export default function Sign() {
     const data = {
       ...formData,
       story,
+      recaptchaToken: token,
       timestamp: serverTimestamp(),
     };
 
@@ -147,7 +156,7 @@ export default function Sign() {
             </div>
 
             {/* RIGHT COLUMN: FORM */}
-            <div>
+            <form onSubmit={handleSubmit}>
               <h2 className="text-xl font-bold mb-4">📋 Your Information</h2>
 
               <div className="space-y-4">
@@ -213,14 +222,20 @@ export default function Sign() {
 
                 {story && (
                   <button
+                    type="submit"
                     className="mt-6 w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 font-semibold"
-                    onClick={handleSubmit}
                   >
                     🖊 Submit My Story & Information
                   </button>
                 )}
               </div>
-            </div>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                size="invisible"
+                onChange={(token) => setCaptchaToken(token)}
+              />
+            </form>
           </>
         )}
       </main>
