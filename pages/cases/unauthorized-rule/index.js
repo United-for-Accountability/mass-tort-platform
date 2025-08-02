@@ -427,6 +427,25 @@ export default function UnauthorizedRule() {
           We are exercising a right retained by the people.
           <strong>That’s the 9th Amendment.</strong></p>
         </section>
+
+<section className="bg-red-50 border border-red-200 rounded-lg mt-16 p-8 text-center shadow-md">
+  <h2 className="text-2xl font-bold text-red-800 mb-4">✍️ Stand With the Constitution — Sign the Declaration</h2>
+  <p className="text-lg text-gray-800 mb-6">
+    Your voice is not symbolic. It’s constitutional power. Every signature becomes evidence in a historic legal action to stop unauthorized rule and restore lawful governance.
+    <br /><br />
+    Even if you haven’t been directly harmed, your rights — and your future — are on the line. Add your name, tell your story, and take your place in the legal firewall.
+  </p>
+  <a
+    href="/declaration"
+    className="inline-block bg-red-600 hover:bg-red-700 text-white text-lg font-semibold py-3 px-6 rounded shadow transition duration-200"
+  >
+    ✅ Sign the Declaration of Unauthorized Rule
+  </a>
+</section>
+
+<Footer />
+
+              
       </main>
 
       <Footer />
