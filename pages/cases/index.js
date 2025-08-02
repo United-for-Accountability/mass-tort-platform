@@ -36,6 +36,11 @@ export default function Cases() {
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <CaseCard
+            title="Unauthorized Rule: The People’s Right to Reject Corporate Capture of Government"
+            href="/cases/unauthorized-rule"
+            description="Invoking the 9th Amendment to lawfully resist any leader — past or present — who attempts to govern without public consent, dismantle representative democracy, or surrender government to institutional holders."
+          />
           <CaseCard
             title="Housing Injustice Lawsuit"
             href="/cases/housing"
