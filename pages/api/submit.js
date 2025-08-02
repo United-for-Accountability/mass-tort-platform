@@ -1,5 +1,16 @@
 // pages/api/submit.js
 
+const verifyRecaptcha = async (token) => {
+  const res = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+  });
+
+  const data = await res.json();
+  return data.success && data.score >= 0.5;
+};
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
@@ -19,7 +30,13 @@ export default async function handler(req, res) {
     consentToUse,
     canContact,
     contactMethod,
+    token,
   } = req.body;
+
+  const isHuman = await verifyRecaptcha(token);
+  if (!isHuman) {
+    return res.status(400).json({ error: 'Invalid reCAPTCHA token' });
+  }
 
   try {
     const airtableRes = await fetch(`https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${encodeURIComponent(process.env.AIRTABLE_TABLE_NAME)}`, {
