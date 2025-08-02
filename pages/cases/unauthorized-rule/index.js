@@ -441,11 +441,7 @@ export default function UnauthorizedRule() {
   >
     ✅ Sign the Declaration of Unauthorized Rule
   </a>
-</section>
-
-<Footer />
-
-              
+</section>            
       </main>
 
       <Footer />
