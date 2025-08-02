@@ -36,11 +36,16 @@ export default function Cases() {
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <CaseCard
+          <CaseCard
             title="Unauthorized Rule: The People’s Right to Reject Corporate Capture of Government Mass Tort"
             href="/cases/unauthorized-rule"
             description="Invoking the 9th Amendment to lawfully resist any leader — past or present — who attempts to govern without public consent, dismantle representative democracy, or surrender government to institutional holders."
           />
+          <CaseCard
+           title="We Recognize Palestine: A Global and Constitutional Legal Demand for Sovereignty"
+           href="/cases/we-recognize-palestine"
+           description="A global mass tort and 9th Amendment action to recognize Palestine as a sovereign state, end U.S. complicity in genocide, and assert the people's retained right to lawful resistance against state-enabled oppression and foreign policy without consent."
+         />
           <CaseCard
             title="Housing Injustice Lawsuit"
             href="/cases/housing"
