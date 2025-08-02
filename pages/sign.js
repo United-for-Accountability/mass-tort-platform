@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import { useState } from 'react';
 import StoryAIHelper from '../components/StoryAIHelper';
 import GuidedStoryHelper from '../components/GuidedStoryHelper';
+import { db } from '../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const signSchema = {
   "@context": "https://schema.org",
@@ -48,18 +50,17 @@ export default function Sign() {
       return;
     }
 
-    try {
-      const res = await fetch('/api/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, story }),
-      });
+    const data = {
+      ...formData,
+      story,
+      timestamp: serverTimestamp(),
+    };
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
+    try {
+      await addDoc(collection(db, 'declarations'), data);
       setSubmitted(true);
     } catch (err) {
-      console.error('❌ Submission Error:', err);
+      console.error('Submission error:', err);
       alert('Something went wrong submitting your story. Please try again.');
     }
   };
