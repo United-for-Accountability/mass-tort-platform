@@ -35,6 +35,107 @@ export default function UnauthorizedRule() {
           </ul>
           <p className="mb-4">💡 The 9th is the people’s emergency brake.</p>
 
+
+          <h3 className="text-xl font-semibold mt-8 mb-2">⚖️ The Legal Rights That Protect Our Power to Intervene</h3>
+          <p className="mb-4">
+            Purpose: Make it undeniable that what we're doing is legal, lawful, and grounded in historical precedent — not
+            protest without purpose.
+          </p>
+
+          <h4 className="text-lg font-semibold mb-2">📜 Constitutional Provisions That Protect the People’s Right to Act</h4>
+          <table className="w-full text-left border border-gray-300 mb-4">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border px-4 py-2">Law / Amendment</th>
+                <th className="border px-4 py-2">What It Protects</th>
+                <th className="border px-4 py-2">How It Applies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border px-4 py-2">9th Amendment</td>
+                <td className="border px-4 py-2">Rights retained by the people, even if not listed in the Constitution</td>
+                <td className="border px-4 py-2">Protects your right to governance by consent, dignity, safety, resistance to tyranny</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">1st Amendment</td>
+                <td className="border px-4 py-2">Free speech, assembly, petitioning the government</td>
+                <td className="border px-4 py-2">Protects your right to speak out, organize, submit declarations and lawsuits</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">14th Amendment, Section 3</td>
+                <td className="border px-4 py-2">Disqualifies anyone from office who engaged in insurrection or rebellion</td>
+                <td className="border px-4 py-2">Provides legal ground to bar Trump from office</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">5th Amendment</td>
+                <td className="border px-4 py-2">Due process and protections against deprivation of liberty or property without lawful procedure</td>
+                <td className="border px-4 py-2">Supports challenges to captured institutions denying you constitutional safeguards</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Declaration of Independence</td>
+                <td className="border px-4 py-2">The right to alter or abolish government that becomes destructive</td>
+                <td className="border px-4 py-2">Historic and philosophical basis for rejecting unauthorized rule</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 className="text-lg font-semibold mb-2">📘 Civil Rights Statutes That Allow You to Sue for Harm</h4>
+          <table className="w-full text-left border border-gray-300 mb-4">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border px-4 py-2">Statute</th>
+                <th className="border px-4 py-2">What It Does</th>
+                <th className="border px-4 py-2">How We Use It</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border px-4 py-2">42 U.S.C. § 1983</td>
+                <td className="border px-4 py-2">Allows citizens to sue for violations of constitutional rights by government officials</td>
+                <td className="border px-4 py-2">Foundation for our mass tort — government enabling harm without consent</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">42 U.S.C. § 1985</td>
+                <td className="border px-4 py-2">Prohibits conspiracies to interfere with civil rights</td>
+                <td className="border px-4 py-2">Applies to coordinated efforts to suppress votes, rights, or truthful governance</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">42 U.S.C. § 1986</td>
+                <td className="border px-4 py-2">Requires government actors to prevent civil rights violations if they are aware of them</td>
+                <td className="border px-4 py-2">Used to expose failure to prevent harm caused by Trump or co-conspirators</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 className="text-lg font-semibold mb-2">🧷 Legal Doctrines That Support This Case</h4>
+          <table className="w-full text-left border border-gray-300 mb-4">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="border px-4 py-2">Doctrine</th>
+                <th className="border px-4 py-2">What It Means</th>
+                <th className="border px-4 py-2">Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border px-4 py-2">Public Trust Doctrine</td>
+                <td className="border px-4 py-2">Government holds resources and systems in trust for the public, not private gain</td>
+                <td className="border px-4 py-2">Invoked against corporate capture of governance and law</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Third-Party Standing</td>
+                <td className="border px-4 py-2">You can sue on behalf of someone harmed if they can’t represent themselves</td>
+                <td className="border px-4 py-2">Vital for collective action on behalf of silenced, oppressed, or vulnerable groups</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Structural Harm</td>
+                <td className="border px-4 py-2">Systemic harm to constitutional order gives standing to anyone affected by it</td>
+                <td className="border px-4 py-2">Even if you’re not individually harmed, the corrupted structure justifies intervention</td>
+              </tr>
+            </tbody>
+          </table>
+
           <h3 className="text-xl font-semibold mt-8 mb-2">✅ 3. Why This Is Legal (Even Without a Lawyer)</h3>
           <p className="mb-4">The Constitution gives the people standing when rights are violated systemically.</p>
           <p className="mb-4">Cases have been brought <em>pro se</em> (without attorneys) and accepted when harm is direct and urgent.</p>
