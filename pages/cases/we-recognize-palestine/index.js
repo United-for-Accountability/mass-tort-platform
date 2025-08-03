@@ -27,7 +27,7 @@ export default function Home() {
           <p className="text-lg max-w-4xl mx-auto mb-8">
             We declare: The people are not powerless. We are not complicit. We do not recognize occupation, apartheid, or silence as policy. We recognize the dignity and sovereignty of Palestine, and we invoke the full power of constitutional and international law to demand change. We act not in protest, but in purpose — as lawful guardians of justice, equity, and truth.
           </p>
-          <Link href="/we-recognize-palestine/declaration">
+          <Link href="cases/we-recognize-palestine/declaration">
             <a className="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg text-lg shadow-lg transition">
               ✍️ Sign the Petition
             </a>
@@ -56,7 +56,7 @@ export default function Home() {
             <p className="text-lg mb-4">
               You are not symbolic. You are the firewall. Add your name. Add your story. Demand recognition.
             </p>
-            <Link href="/we-recognize-palestine/declaration">
+            <Link href="cases/we-recognize-palestine/declaration">
               <a className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded shadow-lg mt-4">
                 ✅ Sign the Petition Now
               </a>
