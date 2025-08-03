@@ -90,7 +90,15 @@ export default function CorporateCongressionalInfluence() {
             <li>Document harm from lobbying interference in housing, healthcare, education, wages, and governance.</li>
             <li>Demand legal acknowledgment that representation is not for sale.</li>
           </ul>
-          <p><strong>Submit your declaration:</strong> <a href="https://unitedforaccountability.org/" className="text-blue-600 underline">unitedforaccountability.org</a></p>
+          <p>
+            <strong>Submit your declaration:</strong>{' '}
+            <a
+              href="/cases/corporate-congressional-influence-and-systemic-disenfranchisement/declaration"
+              className="text-blue-600 underline"
+            >
+              Sign here
+            </a>
+          </p>
           <p>When corporations write the laws, we are no longer a democracy. The Constitution was not written to serve capital. It was written to restrain it.</p>
           <p>This is our legal right. This is our majority. This is our stand.</p>
         </section>
@@ -130,7 +138,15 @@ export default function CorporateCongressionalInfluence() {
             <li>Court interpretations that conflict with retained public rights are subject to challenge and repeal.</li>
             <li>We have the right to end it. Full stop.</li>
           </ul>
-          <p><strong>Submit your declaration:</strong> <a href="https://unitedforaccountability.org/" className="text-blue-600 underline">unitedforaccountability.org</a></p>
+          <p>
+            <strong>Submit your declaration:</strong>{' '}
+            <a
+              href="/cases/corporate-congressional-influence-and-systemic-disenfranchisement/declaration"
+              className="text-blue-600 underline"
+            >
+              Sign here
+            </a>
+          </p>
         </section>
       </main>
 
