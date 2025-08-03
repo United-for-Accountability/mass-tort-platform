@@ -32,7 +32,7 @@ export default function Home() {
               ✍️ Sign the Petition
             </a>
           </Link>
-        </section>
+        </section> 
 
         <section className="grid md:grid-cols-2 gap-8">
           <div>
