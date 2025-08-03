@@ -50,7 +50,7 @@ export default function DeclarationForm() {
 
       <main className="bg-gray-50 py-12 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold text-blue-900 mb-6">\u270d\ufe0f Declaration: Corporate Congressional Influence &amp; Systemic Disenfranchisement</h1>
+          <h1 className="text-3xl font-bold text-blue-900 mb-6">\Declaration: Corporate Congressional Influence &amp; Systemic Disenfranchisement</h1>
 
           {submitted && (
             <p className="text-green-700 text-lg font-semibold mb-6">
