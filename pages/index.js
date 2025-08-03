@@ -82,7 +82,7 @@ export default function Home() {
               <br />  
               🧾 Every name helps restore the power of the people.
             </p>
-            <a href="/sign" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
+            <a href="/cases" className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition">
               <img
                 src="/images/united-for-accountability-logo.png"
                 alt="United for Accountability logo"
