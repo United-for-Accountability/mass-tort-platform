@@ -47,6 +47,11 @@ export default function Cases() {
            description="A global mass tort and 9th Amendment action to recognize Palestine as a sovereign state, end U.S. complicity in genocide, and assert the people's retained right to lawful resistance against state-enabled oppression and foreign policy without consent."
          />
           <CaseCard
+            title="United for Accountability et al. v. Corporate Congressional Influence and Systemic Disenfranchisement"
+            href="/cases/corporate-congressional-influence-and-systemic-disenfranchisement"
+            description="Mass tort asserting the 9th Amendment right to be free from corporate lobbying that overrides public representation."
+          />
+          <CaseCard
             title="Housing Injustice Lawsuit"
             href="/cases/housing"
             description="Challenging the systemic exploitation of tenants, homelessness criminalization, and institutional neglect in housing policy."
