@@ -136,11 +136,17 @@ export default function DeclarationForm() {
               </label>
             </div>
 
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              onChange={(token) => setCaptchaToken(token)}
-              className="my-4"
-            />
+            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={(token) => setCaptchaToken(token)}
+                className="my-4"
+              />
+            ) : (
+              <p className="text-red-600">
+                reCAPTCHA key missing. Form submission disabled.
+              </p>
+            )}
             <button type="submit" className="w-full bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800">
               ✅ Submit My Declaration
             </button>

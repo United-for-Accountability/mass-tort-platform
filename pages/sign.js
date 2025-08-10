@@ -23,6 +23,7 @@ export default function Sign() {
   const [mode, setMode] = useState(''); // '' | 'ai' | 'guided'
 
   const recaptchaRef = useRef(null);
+  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   const harmCategories = [
     'housing',
@@ -78,7 +79,15 @@ export default function Sign() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await recaptchaRef.current.executeAsync();
+    if (!recaptchaKey) {
+      alert('reCAPTCHA key not configured.');
+      return;
+    }
+    const token = await recaptchaRef.current?.executeAsync();
+    if (!token) {
+      alert('reCAPTCHA failed. Please try again.');
+      return;
+    }
     if (!formData.consent_checked || !formData.signature_name.trim()) {
       alert('Consent and signature are required.');
       return;
@@ -323,7 +332,9 @@ export default function Sign() {
                   </button>
                 )}
               </div>
-              <ReCAPTCHA ref={recaptchaRef} sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY} size="invisible" />
+              {recaptchaKey && (
+                <ReCAPTCHA ref={recaptchaRef} sitekey={recaptchaKey} size="invisible" />
+              )}
             </form>
           </>
         )}
