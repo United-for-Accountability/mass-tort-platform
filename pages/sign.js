@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import StoryAIHelper from '../components/StoryAIHelper';
 import GuidedStoryHelper from '../components/GuidedStoryHelper';
+import SigningForSection from '../components/SigningForSection';
 // Submission handled via API route to ensure server-side validation
 
 const signSchema = {
@@ -43,10 +44,21 @@ export default function Sign() {
     zip: '',
     standingType: 'direct-harm',
     harmCategory: [],
-    consentToLegalUse: false,
-    perjuryDeclaration: false,
-    eSignAcknowledgment: false,
-    typedSignature: ''
+    sign_for: 'self',
+    signer_fullName: '',
+    signer_email: '',
+    signer_phone: '',
+    relationship_to_person: '',
+    rep_fullName: '',
+    rep_dob: '',
+    rep_city: '',
+    rep_state: '',
+    rep_zip: '',
+    authority_type: '',
+    authority_file: null,
+    authority_attestation: false,
+    consent_checked: false,
+    signature_name: ''
   });
 
   const handleChange = (e) => {
@@ -67,31 +79,70 @@ export default function Sign() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await recaptchaRef.current.executeAsync();
+    if (!formData.consent_checked || !formData.signature_name.trim()) {
+      alert('Consent and signature are required.');
+      return;
+    }
 
-    if (!formData.consentToLegalUse || !formData.perjuryDeclaration || !formData.eSignAcknowledgment) {
-      alert('All legal acknowledgments must be accepted.');
-      return;
-    }
-    if (!formData.typedSignature.trim()) {
-      alert('Typed signature is required.');
-      return;
-    }
     if (formData.standingType === 'direct-harm' && !harmStatement.trim()) {
       alert('Please describe your harm.');
       return;
     }
 
+    if (formData.sign_for === 'minor') {
+      if (!formData.rep_dob) {
+        alert('Date of birth required for the person represented.');
+        return;
+      }
+      const age = Math.floor((Date.now() - new Date(formData.rep_dob).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+      if (age >= 18) {
+        alert('Represented person must be under 18.');
+        return;
+      }
+      if (!['Parent', 'Legal Guardian'].includes(formData.authority_type)) {
+        alert('Invalid authority type for minor.');
+        return;
+      }
+      if (formData.authority_type === 'Legal Guardian' && !formData.authority_file) {
+        alert('Proof of authority is required for Legal Guardian.');
+        return;
+      }
+    }
+
+    if (formData.sign_for === 'incapacity') {
+      if (!formData.authority_type) {
+        alert('Authority type required.');
+        return;
+      }
+      const needsFile = ['Power of Attorney', 'Court‑Appointed Conservator/Guardian', 'Healthcare Proxy'].includes(formData.authority_type);
+      if (needsFile && !formData.authority_file) {
+        alert('Proof of authority file required.');
+        return;
+      }
+      if (formData.authority_type === 'No formal document – next of kin attestation' && !formData.authority_attestation) {
+        alert('Attestation checkbox required.');
+        return;
+      }
+    }
+
     const clientSignedAt = new Date().toISOString();
+    const fd = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        if (key === 'harmCategory') {
+          fd.append(key, JSON.stringify(value));
+        } else {
+          fd.append(key, value);
+        }
+      }
+    });
+    fd.append('harmStatement', harmStatement);
+    fd.append('clientSignedAt', clientSignedAt);
+    fd.append('token', token);
 
     const res = await fetch('/api/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...formData,
-        harmStatement,
-        clientSignedAt,
-        token
-      })
+      body: fd,
     });
 
     if (res.ok) {
@@ -185,29 +236,34 @@ export default function Sign() {
 
             {/* RIGHT COLUMN: FORM */}
             <form onSubmit={handleSubmit}>
+              <SigningForSection formData={formData} setFormData={setFormData} />
               <h2 className="text-xl font-bold mb-4">📋 Your Information</h2>
 
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">First Name *</label>
-                    <input name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Last Name *</label>
-                    <input name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
-                  </div>
-                </div>
+                {formData.sign_for === 'self' && (
+                  <>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium mb-1">First Name *</label>
+                        <input name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Last Name *</label>
+                        <input name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-1">Email *</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Email *</label>
+                      <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
+                    </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-1">Phone *</label>
-                  <input name="phone" value={formData.phone} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Phone *</label>
+                      <input name="phone" value={formData.phone} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
+                    </div>
+                  </>
+                )}
 
                 <div>
                   <label className="block text-sm font-medium mb-1">Address Line 1</label>
@@ -260,33 +316,6 @@ export default function Sign() {
                     <textarea name="harmStatement" value={harmStatement} onChange={(e) => setHarmStatement(e.target.value)} required className="w-full border px-3 py-2 rounded" />
                   </div>
                 )}
-
-                <p className="text-sm mt-6">
-                  <strong>Declaration:</strong> I declare under penalty of perjury that the foregoing is true and correct.
-                </p>
-                <p className="text-sm">
-                  <strong>Electronic Signature:</strong> I agree that my typed name below constitutes my electronic signature and has the same legal effect as a handwritten signature under the ESIGN Act.
-                </p>
-
-                <label className="block mt-2">
-                  <input type="checkbox" name="consentToLegalUse" checked={formData.consentToLegalUse} onChange={handleChange} required className="mr-2" />
-                  I consent to the use of this declaration for legal proceedings.
-                </label>
-                <label className="block">
-                  <input type="checkbox" name="perjuryDeclaration" checked={formData.perjuryDeclaration} onChange={handleChange} required className="mr-2" />
-                  I make this declaration under penalty of perjury.
-                </label>
-                <label className="block">
-                  <input type="checkbox" name="eSignAcknowledgment" checked={formData.eSignAcknowledgment} onChange={handleChange} required className="mr-2" />
-                  I agree this is my electronic signature.
-                </label>
-
-                <div className="mt-2">
-                  <label className="block text-sm font-medium mb-1">Type full legal name as signature *</label>
-                  <input name="typedSignature" value={formData.typedSignature} onChange={handleChange} required className="w-full border px-3 py-2 rounded" />
-                </div>
-
-                <input type="hidden" name="clientSignedAt" value={new Date().toISOString()} />
 
                 {harmStatement && (
                   <button type="submit" className="mt-6 w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 font-semibold">
