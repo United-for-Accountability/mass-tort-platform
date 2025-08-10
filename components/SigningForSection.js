@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 export default function SigningForSection({ formData, setFormData }) {
   const [showAttestation, setShowAttestation] = useState(false);
+  const [needsFile, setNeedsFile] = useState(false);
 
   const onChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -14,6 +15,10 @@ export default function SigningForSection({ formData, setFormData }) {
   return (
     <section className="space-y-4">
       <h3 className="text-xl font-semibold">Who are you signing for?</h3>
+      <p className="text-sm text-gray-600">
+        Parents, legal guardians, or next of kin may sign on behalf of a minor child or loved one
+        who cannot sign for themselves.
+      </p>
       <div className="space-y-2">
         <label className="flex items-center gap-2">
           <input type="radio" name="sign_for" value="self" checked={formData.sign_for === 'self'} onChange={onChange} required />
@@ -53,10 +58,21 @@ export default function SigningForSection({ formData, setFormData }) {
 
           <div className="mt-4">
             <h4 className="font-semibold mb-2">Your legal authority</h4>
-            <select name="authority_type" className="border p-2 w-full" required onChange={(e) => {
-              onChange(e);
-              setShowAttestation(e.target.value === 'No formal document – next of kin attestation');
-            }}>
+            <select
+              name="authority_type"
+              className="border p-2 w-full"
+              required
+              onChange={(e) => {
+                onChange(e);
+                const value = e.target.value;
+                setNeedsFile(
+                  (formData.sign_for === 'minor' && value === 'Legal Guardian') ||
+                    (formData.sign_for === 'incapacity' &&
+                      ['Power of Attorney', 'Court‑Appointed Conservator/Guardian', 'Healthcare Proxy'].includes(value))
+                );
+                setShowAttestation(value === 'No formal document – next of kin attestation');
+              }}
+            >
               <option value="">Select authority</option>
               {formData.sign_for === 'minor' ? (
                 <>
@@ -73,12 +89,17 @@ export default function SigningForSection({ formData, setFormData }) {
               )}
             </select>
 
-            {showAttestation ? (
+            {showAttestation && (
               <label className="flex items-start gap-2 mt-2">
                 <input type="checkbox" name="authority_attestation" onChange={onChange} required />
-                <span>I attest under penalty of perjury that I am next of kin/primary caregiver and the individual cannot consent, and no legally superior representative is available.</span>
+                <span>
+                  I attest under penalty of perjury that I am next of kin/primary caregiver and the individual
+                  cannot consent, and no legally superior representative is available.
+                </span>
               </label>
-            ) : (
+            )}
+
+            {needsFile && (
               <div className="mt-2">
                 <label className="block mb-1">Upload proof of authority (PDF/JPG/PNG)</label>
                 <input type="file" name="authority_file" accept=".pdf,.jpg,.jpeg,.png" onChange={onChange} />
