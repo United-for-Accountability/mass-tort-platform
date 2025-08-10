@@ -137,7 +137,7 @@ export default function DeclarationForm() {
             </div>
 
             <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               onChange={(token) => setCaptchaToken(token)}
               className="my-4"
             />
