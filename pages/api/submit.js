@@ -1,15 +1,40 @@
-// pages/api/submit.js
+import crypto from 'crypto';
+import { db } from '../../lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 const verifyRecaptcha = async (token) => {
-  const res = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+  const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
   });
-
   const data = await res.json();
-  return data.success && data.score >= 0.5;
+  return data.success;
 };
+
+function canonicalizeForHash(payload) {
+  const signed = {
+    firstName: payload.firstName?.trim(),
+    lastName: payload.lastName?.trim(),
+    email: payload.email?.toLowerCase().trim(),
+    phone: payload.phone?.trim(),
+    state: payload.state,
+    county: payload.county,
+    standingType: payload.standingType,
+    harmCategory: (payload.harmCategory || []).sort(),
+    harmStatement: payload.harmStatement || '',
+    typedSignature: payload.typedSignature?.trim(),
+    perjuryDeclaration: !!payload.perjuryDeclaration,
+    eSignAcknowledgment: !!payload.eSignAcknowledgment,
+    consentToLegalUse: !!payload.consentToLegalUse,
+    clientSignedAt: payload.clientSignedAt,
+  };
+  return JSON.stringify(signed);
+}
+
+function sha256(input) {
+  return crypto.createHash('sha256').update(input, 'utf8').digest('hex');
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -17,19 +42,23 @@ export default async function handler(req, res) {
   }
 
   const {
-    name,
+    firstName,
+    lastName,
     email,
     phone,
+    addressLine1,
     city,
     state,
+    county,
     zip,
-    age,
-    gender,
-    race,
-    story,
-    consentToUse,
-    canContact,
-    contactMethod,
+    standingType,
+    harmCategory,
+    harmStatement,
+    consentToLegalUse,
+    perjuryDeclaration,
+    eSignAcknowledgment,
+    typedSignature,
+    clientSignedAt,
     token,
   } = req.body;
 
@@ -38,43 +67,51 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid reCAPTCHA token' });
   }
 
+  if (!firstName || !lastName || !email || !phone || !state || !county || !typedSignature || !consentToLegalUse || !perjuryDeclaration || !eSignAcknowledgment) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+  if (standingType === 'direct-harm' && !harmStatement) {
+    return res.status(400).json({ error: 'Harm statement required for direct harm' });
+  }
+
+  const canonical = canonicalizeForHash(req.body);
+  const submissionHash = sha256(canonical);
+  const now = new Date().toISOString();
+  const ip =
+    req.headers['x-forwarded-for']?.toString().split(',')[0].trim() ||
+    req.socket?.remoteAddress ||
+    'unknown';
+  const userAgent = req.headers['user-agent'] || 'unknown';
+
   try {
-    const airtableRes = await fetch(`https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${encodeURIComponent(process.env.AIRTABLE_TABLE_NAME)}`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        fields: {
-          Name: name,
-          Email: email,
-          "Phone Number": phone,
-          City: city,
-          State: state,
-          "ZIP Code": zip,
-          Age: age,
-          Gender: gender,
-          "Race/Ethnicity": race,
-          "Declaration of Harm": story,
-          "Consent for Use": consentToUse,
-          "Okay to Contact About Tort": canContact,
-          "Preferred Contact Method": contactMethod,
-          "Date Signed": new Date().toISOString().split('T')[0],
-        }
-      }),
+    await addDoc(collection(db, 'Declarations'), {
+      firstName,
+      lastName,
+      email,
+      phone,
+      addressLine1,
+      city,
+      state,
+      county,
+      zip,
+      standingType,
+      harmCategory: harmCategory || [],
+      harmStatement: harmStatement || '',
+      consentToLegalUse: !!consentToLegalUse,
+      perjuryDeclaration: !!perjuryDeclaration,
+      eSignAcknowledgment: !!eSignAcknowledgment,
+      typedSignature,
+      clientSignedAt,
+      serverReceivedAt: now,
+      serverTimezone: 'UTC',
+      ipAddress: ip,
+      userAgent,
+      submissionHash,
+      version: 2,
     });
-
-    const result = await airtableRes.json();
-
-    if (!airtableRes.ok) {
-      console.error('❌ Airtable error:', result);
-      return res.status(500).json({ error: 'Failed to save to Airtable.' });
-    }
-
-    return res.status(200).json({ success: true, record: result });
+    res.status(200).json({ success: true, submissionHash });
   } catch (error) {
-    console.error('❌ Server error:', error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Submission error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 }
