@@ -5,18 +5,47 @@ import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { db } from '../../../lib/firebase';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
+import SigningForSection from '../../../components/SigningForSection';
 
 export default function DeclarationForm() {
-  const [formData, setFormData] = useState({});
+  const initialFormData = {
+    fullName: '',
+    email: '',
+    phone: '',
+    location: '',
+    address: '',
+    race: '',
+    gender: '',
+    age: '',
+    income: '',
+    statement: '',
+    sign_for: 'self',
+    signer_fullName: '',
+    signer_email: '',
+    signer_phone: '',
+    relationship_to_person: '',
+    rep_fullName: '',
+    rep_dob: '',
+    rep_city: '',
+    rep_state: '',
+    rep_zip: '',
+    authority_type: '',
+    authority_file: null,
+    authority_attestation: false,
+    consent_checked: false,
+    signature_name: ''
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
   const [submitted, setSubmitted] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: type === 'checkbox' ? checked : value
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -27,12 +56,55 @@ export default function DeclarationForm() {
       return;
     }
 
+    if (!formData.consent_checked || !formData.signature_name.trim()) {
+      alert('Consent and signature are required.');
+      return;
+    }
+
+    if (formData.sign_for === 'minor') {
+      if (!formData.rep_dob) {
+        alert('Date of birth required for the person represented.');
+        return;
+      }
+      const age = Math.floor((Date.now() - new Date(formData.rep_dob).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+      if (age >= 18) {
+        alert('Represented person must be under 18.');
+        return;
+      }
+      if (!['Parent', 'Legal Guardian'].includes(formData.authority_type)) {
+        alert('Invalid authority type for minor.');
+        return;
+      }
+      if (formData.authority_type === 'Legal Guardian' && !formData.authority_file) {
+        alert('Proof of authority is required for Legal Guardian.');
+        return;
+      }
+    }
+
+    if (formData.sign_for === 'incapacity') {
+      if (!formData.authority_type) {
+        alert('Authority type required.');
+        return;
+      }
+      const needsFile = ['Power of Attorney', 'Court‑Appointed Conservator/Guardian', 'Healthcare Proxy'].includes(formData.authority_type);
+      if (needsFile && !formData.authority_file) {
+        alert('Proof of authority file required.');
+        return;
+      }
+      if (formData.authority_type === 'No formal document – next of kin attestation' && !formData.authority_attestation) {
+        alert('Attestation checkbox required.');
+        return;
+      }
+    }
+
     try {
-      await addDoc(collection(db, 'DeclarationOfCorporateCongressionalInfluence'), {
-        ...formData,
-        submittedAt: Timestamp.now()
-      });
+      const submissionData = { ...formData };
+      delete submissionData.authority_file;
+      submissionData.submittedAt = Timestamp.now();
+      submissionData.clientSignedAt = new Date().toISOString();
+      await addDoc(collection(db, 'DeclarationOfCorporateCongressionalInfluence'), submissionData);
       setSubmitted(true);
+      setFormData(initialFormData);
       e.target.reset();
     } catch (err) {
       console.error('\ud83d\udd25 Error submitting declaration:', err);
@@ -59,20 +131,26 @@ export default function DeclarationForm() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-md">
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name *</label>
-              <input type="text" id="fullName" name="fullName" required onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
-            </div>
+            <SigningForSection formData={formData} setFormData={setFormData} />
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address *</label>
-              <input type="email" id="email" name="email" required onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
-            </div>
+            {formData.sign_for === 'self' && (
+              <>
+                <div>
+                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name *</label>
+                  <input type="text" id="fullName" name="fullName" required onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                </div>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (optional)</label>
-              <input type="tel" id="phone" name="phone" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
-            </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address *</label>
+                  <input type="email" id="email" name="email" required onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number (optional)</label>
+                  <input type="tel" id="phone" name="phone" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                </div>
+              </>
+            )}
 
             <div>
               <label htmlFor="location" className="block text-sm font-medium text-gray-700">City &amp; State *</label>
@@ -127,13 +205,6 @@ export default function DeclarationForm() {
             <div>
               <label htmlFor="statement" className="block text-sm font-medium text-gray-700">Why are you signing? (optional)</label>
               <textarea id="statement" name="statement" rows="4" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Your personal thoughts or message..."></textarea>
-            </div>
-
-            <div className="flex items-start">
-              <input id="consent" name="consent" type="checkbox" required onChange={handleChange} className="h-4 w-4 text-blue-600" />
-              <label htmlFor="consent" className="ml-2 text-sm text-gray-700">
-                I affirm this is voluntary and may be used in a legal filing.
-              </label>
             </div>
 
             {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? (
