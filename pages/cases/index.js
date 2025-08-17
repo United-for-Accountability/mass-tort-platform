@@ -46,7 +46,12 @@ export default function Cases() {
            href="/cases/we-recognize-palestine"
            description="A global mass tort and 9th Amendment action to recognize Palestine as a sovereign state, end U.S. complicity in genocide, and assert the people's retained right to lawful resistance against state-enabled oppression and foreign policy without consent."
          />
-          <CaseCard
+         <CaseCard
+           title="Ending the Estate Inheritance Tax"
+           href="/cases/ending-the-estate-inheritance-tax"
+           description="Constitutional challenge asserting the estate inheritance tax violates the 5th, 9th, and 14th Amendments and destroys generational wealth."
+         />
+         <CaseCard
             title="United for Accountability et al. v. Corporate Congressional Influence and Systemic Disenfranchisement"
             href="/cases/corporate-congressional-influence-and-systemic-disenfranchisement"
             description="Mass tort asserting the 9th Amendment right to be free from corporate lobbying that overrides public representation."
