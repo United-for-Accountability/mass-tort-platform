@@ -134,7 +134,7 @@ export default function EndingEstateInheritanceTax() {
             can add your testimony.
           </p>
           <a
-            href="/stories"
+            href="/declaration"
             className="inline-block bg-blue-700 text-white px-5 py-3 rounded-lg shadow hover:bg-blue-800 transition"
           >
             ➡️ Submit Your Story
