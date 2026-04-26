@@ -4,6 +4,17 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-53MBL66RQY" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-53MBL66RQY');
+            `,
+          }}
+        />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon_16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon_32x32.png" />
