@@ -6,6 +6,7 @@ import StoryAIHelper from '../components/StoryAIHelper';
 import GuidedStoryHelper from '../components/GuidedStoryHelper';
 import DemographicForm from '../components/DemographicForm';
 import GuidedStoryAssistant from '../components/GuidedStoryAssistant';
+import { trackEvent } from '../lib/analytics';
 
 const signSchema = {
   "@context": "https://schema.org",
@@ -28,6 +29,10 @@ export default function Sign() {
     }
 
     console.log('Submitted story:', story);
+    trackEvent('story_complete', {
+      page_path: window.location.pathname,
+      submission_type: 'story',
+    });
     setSubmitted(true);
   };
 

@@ -6,6 +6,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import StoryAIHelper from '../components/StoryAIHelper';
 import GuidedStoryHelper from '../components/GuidedStoryHelper';
 import SigningForSection from '../components/SigningForSection';
+import { trackEvent } from '../lib/analytics';
 // Submission handled via API route to ensure server-side validation
 
 const signSchema = {
@@ -155,6 +156,10 @@ export default function Sign() {
     });
 
     if (res.ok) {
+      trackEvent('story_complete', {
+        page_path: window.location.pathname,
+        submission_type: 'declaration',
+      });
       setSubmitted(true);
     } else {
       const { error } = await res.json();
