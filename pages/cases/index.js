@@ -37,6 +37,11 @@ export default function Cases() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <CaseCard
+            title="The People's Last Resort"
+            href="/cases/peoples-last-resort"
+            description="A contingent Ninth Amendment last-resort case that collects declarations now while reserving any withdrawal-of-consent notice for a future verified-majority threshold and court denial."
+          />
+          <CaseCard
             title="Unauthorized Rule: The People’s Right to Reject Corporate Capture of Government Mass Tort"
             href="/cases/unauthorized-rule"
             description="Invoking the 9th Amendment to lawfully resist any leader — past or present — who attempts to govern without public consent, dismantle representative democracy, or surrender government to institutional holders."
@@ -55,6 +60,11 @@ export default function Cases() {
             title="United for Accountability et al. v. Corporate Congressional Influence and Systemic Disenfranchisement"
             href="/cases/corporate-congressional-influence-and-systemic-disenfranchisement"
             description="Mass tort asserting the 9th Amendment right to be free from corporate lobbying that overrides public representation."
+          />
+          <CaseCard
+            title="Revocation of the Federal Tort Claims Act"
+            href="/cases/federal-tort-claims-act"
+            description="A contingent constitutional challenge arguing that the sovereign people should not need the federal government's consent to seek judicial accountability, with activation tied to verified support from more than half of the U.S. adult population."
           />
           <CaseCard
             title="Housing Injustice Lawsuit"
