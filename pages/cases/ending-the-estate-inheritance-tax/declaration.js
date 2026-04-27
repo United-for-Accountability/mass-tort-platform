@@ -205,7 +205,7 @@ export default function DeclarationForm() {
               </label>
             </div>
 
-            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''} onChange={(token) => setCaptchaToken(token)} />
+            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_KEY || ''} onChange={(token) => setCaptchaToken(token)} />
 
             <button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded">
               Submit Declaration

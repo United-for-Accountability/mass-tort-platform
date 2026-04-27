@@ -24,7 +24,7 @@ export default function Sign() {
   const [mode, setMode] = useState(''); // '' | 'ai' | 'guided'
 
   const recaptchaRef = useRef(null);
-  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
 
   const harmCategories = [
     'housing',

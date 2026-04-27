@@ -207,9 +207,9 @@ export default function DeclarationForm() {
               <textarea id="statement" name="statement" rows="4" onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Your personal thoughts or message..."></textarea>
             </div>
 
-            {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? (
+            {(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_KEY) ? (
               <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
                 onChange={(token) => setCaptchaToken(token)}
                 className="my-4"
               />

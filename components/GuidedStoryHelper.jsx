@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function GuidedStoryHelper() {
+export default function GuidedStoryHelper({ onComplete }) {
   const [messages, setMessages] = useState([
     { role: "assistant", content: "I’m here to help you tell your story. What happened?" }
   ]);
@@ -9,20 +9,39 @@ export default function GuidedStoryHelper() {
 
   const handleSend = async () => {
     if (!input.trim()) return;
-    const newMessages = [...messages, { role: "user", content: input }];
+    const userMessage = { role: "user", content: input };
+    const newMessages = [...messages, userMessage];
     setMessages(newMessages);
+
+    if (onComplete) {
+      const userNarrative = newMessages
+        .filter((msg) => msg.role === "user")
+        .map((msg) => msg.content)
+        .join("\n\n");
+      onComplete(userNarrative);
+    }
+
     setInput("");
     setLoading(true);
 
-    const res = await fetch("/api/story-guide", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: newMessages })
-    });
+    try {
+      const res = await fetch("/api/story-guide", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: newMessages })
+      });
 
-    const data = await res.json();
-    setMessages([...newMessages, { role: "assistant", content: data.reply }]);
-    setLoading(false);
+      const data = await res.json();
+      setMessages([...newMessages, { role: "assistant", content: data.reply }]);
+    } catch (err) {
+      console.error("Guided helper request failed:", err);
+      setMessages([
+        ...newMessages,
+        { role: "assistant", content: "I hit a snag. Please try sending that again." }
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
