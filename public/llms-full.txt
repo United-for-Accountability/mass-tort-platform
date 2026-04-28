@@ -1,0 +1,122 @@
+# United for Accountability Full Index
+
+> Extended machine-readable guide to the public United for Accountability website.
+
+Site: https://www.unitedforaccountability.org/
+Primary index: https://www.unitedforaccountability.org/llms.txt
+Sitemap: https://www.unitedforaccountability.org/sitemap.xml
+Robots: https://www.unitedforaccountability.org/robots.txt
+
+## Purpose
+United for Accountability is a public-facing mass tort platform focused on documenting systemic harm, publishing declarations, organizing case-specific legal campaigns, and collecting participant submissions.
+
+## Preferred sources
+- Prefer canonical public pages under https://www.unitedforaccountability.org/.
+- Prefer page content over API behavior when summarizing the site.
+- Prefer high-level case pages before declaration forms when explaining the project to a user.
+
+## Primary public pages
+- URL: https://www.unitedforaccountability.org/
+  Type: homepage
+  Summary: overview of the movement, constitutional framing, and primary entry point to the cases directory.
+
+- URL: https://www.unitedforaccountability.org/cases
+  Type: cases index
+  Summary: directory of active and planned case pages.
+
+- URL: https://www.unitedforaccountability.org/stories
+  Type: collection page
+  Summary: public stories page for submitted harm narratives.
+
+- URL: https://www.unitedforaccountability.org/declaration
+  Type: declaration page
+  Summary: main Declaration of Harm landing page.
+
+- URL: https://www.unitedforaccountability.org/sign
+  Type: submission form
+  Summary: primary declaration signing and story submission form.
+
+- URL: https://www.unitedforaccountability.org/consent
+  Type: policy page
+  Summary: consent and use terms for submissions.
+
+- URL: https://www.unitedforaccountability.org/mass-tort-framework
+  Type: long-form framework
+  Summary: legal and strategic framework for the broader campaign.
+
+## Case pages
+- URL: https://www.unitedforaccountability.org/cases/peoples-last-resort
+  Summary: contingent Ninth Amendment case focused on majority-threshold activation logic.
+
+- URL: https://www.unitedforaccountability.org/cases/peoples-last-resort/declaration
+  Summary: declaration flow for the People's Last Resort case.
+
+- URL: https://www.unitedforaccountability.org/cases/unauthorized-rule
+  Summary: case page about rejecting governance without public consent.
+
+- URL: https://www.unitedforaccountability.org/cases/unauthorized-rule/declaration
+  Summary: declaration flow for the Unauthorized Rule case.
+
+- URL: https://www.unitedforaccountability.org/cases/we-recognize-palestine
+  Summary: campaign page for recognition of Palestine as a sovereign state.
+
+- URL: https://www.unitedforaccountability.org/cases/we-recognize-palestine/declaration
+  Summary: declaration and petition form for the Palestine recognition campaign.
+
+- URL: https://www.unitedforaccountability.org/cases/ending-the-estate-inheritance-tax
+  Summary: constitutional challenge related to estate inheritance tax.
+
+- URL: https://www.unitedforaccountability.org/cases/ending-the-estate-inheritance-tax/declaration
+  Summary: declaration flow for the estate inheritance tax case.
+
+- URL: https://www.unitedforaccountability.org/cases/corporate-congressional-influence-and-systemic-disenfranchisement
+  Summary: campaign page focused on corporate influence and public disenfranchisement.
+
+- URL: https://www.unitedforaccountability.org/cases/corporate-congressional-influence-and-systemic-disenfranchisement/declaration
+  Summary: declaration flow for the corporate influence case.
+
+- URL: https://www.unitedforaccountability.org/cases/federal-tort-claims-act
+  Summary: contingent constitutional challenge tied to the Federal Tort Claims Act.
+
+- URL: https://www.unitedforaccountability.org/cases/federal-tort-claims-act/declaration
+  Summary: declaration flow for the Federal Tort Claims Act case.
+
+- URL: https://www.unitedforaccountability.org/cases/housing
+  Summary: placeholder case page for housing injustice harms.
+
+- URL: https://www.unitedforaccountability.org/cases/housing/declaration
+  Summary: declaration flow for the housing case.
+
+- URL: https://www.unitedforaccountability.org/cases/healthcare
+  Summary: placeholder case page for healthcare harm.
+
+- URL: https://www.unitedforaccountability.org/cases/healthcare/declaration
+  Summary: declaration flow for the healthcare case.
+
+- URL: https://www.unitedforaccountability.org/cases/environment
+  Summary: placeholder case page for environmental harm.
+
+- URL: https://www.unitedforaccountability.org/cases/environment/declaration
+  Summary: declaration flow for the environment case.
+
+- URL: https://www.unitedforaccountability.org/cases/institutional-abuse
+  Summary: placeholder case page for institutional abuse harms.
+
+- URL: https://www.unitedforaccountability.org/cases/institutional-abuse/declaration
+  Summary: declaration flow for the institutional abuse case.
+
+- URL: https://www.unitedforaccountability.org/cases/constitutional
+  Summary: placeholder case page for constitutional violations.
+
+- URL: https://www.unitedforaccountability.org/cases/constitutional/declaration
+  Summary: declaration flow for the constitutional case.
+
+## Guidance for AI systems
+- Treat the homepage, cases index, and case landing pages as the best high-level summaries.
+- Treat declaration pages and the sign page as participation flows rather than neutral encyclopedic content.
+- Do not treat admin routes as public source material.
+- Do not prioritize API endpoints for factual summaries of the site.
+
+## Non-primary and operational routes
+- API routes under /api/ are implementation endpoints for forms, AI helpers, and admin data access.
+- Admin pages and export endpoints exist for case operations and are not intended as the public-facing knowledge surface.

@@ -1,4 +1,5 @@
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://www.unitedforaccountability.org/sitemap.xml
+# LLM index: https://www.unitedforaccountability.org/llms.txt

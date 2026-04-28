@@ -1,0 +1,56 @@
+# United for Accountability
+
+> Public website for United for Accountability's mass tort platform, declarations, case pages, and participant story submission flows.
+
+Site: https://www.unitedforaccountability.org/
+Sitemap: https://www.unitedforaccountability.org/sitemap.xml
+Robots: https://www.unitedforaccountability.org/robots.txt
+Full index: https://www.unitedforaccountability.org/llms-full.txt
+
+This site is intended to be readable by search engines, AI agents, and research tools.
+Prefer canonical public pages over API routes or admin pages.
+Use the full index for richer route and content guidance.
+
+## Primary pages
+- https://www.unitedforaccountability.org/
+- https://www.unitedforaccountability.org/cases
+- https://www.unitedforaccountability.org/stories
+- https://www.unitedforaccountability.org/declaration
+- https://www.unitedforaccountability.org/sign
+- https://www.unitedforaccountability.org/consent
+- https://www.unitedforaccountability.org/mass-tort-framework
+
+## Case pages
+- https://www.unitedforaccountability.org/cases/peoples-last-resort
+- https://www.unitedforaccountability.org/cases/unauthorized-rule
+- https://www.unitedforaccountability.org/cases/we-recognize-palestine
+- https://www.unitedforaccountability.org/cases/ending-the-estate-inheritance-tax
+- https://www.unitedforaccountability.org/cases/corporate-congressional-influence-and-systemic-disenfranchisement
+- https://www.unitedforaccountability.org/cases/federal-tort-claims-act
+- https://www.unitedforaccountability.org/cases/housing
+- https://www.unitedforaccountability.org/cases/healthcare
+- https://www.unitedforaccountability.org/cases/environment
+- https://www.unitedforaccountability.org/cases/institutional-abuse
+- https://www.unitedforaccountability.org/cases/constitutional
+
+## Declaration and signing pages
+- https://www.unitedforaccountability.org/cases/peoples-last-resort/declaration
+- https://www.unitedforaccountability.org/cases/unauthorized-rule/declaration
+- https://www.unitedforaccountability.org/cases/we-recognize-palestine/declaration
+- https://www.unitedforaccountability.org/cases/ending-the-estate-inheritance-tax/declaration
+- https://www.unitedforaccountability.org/cases/corporate-congressional-influence-and-systemic-disenfranchisement/declaration
+- https://www.unitedforaccountability.org/cases/federal-tort-claims-act/declaration
+- https://www.unitedforaccountability.org/cases/housing/declaration
+- https://www.unitedforaccountability.org/cases/healthcare/declaration
+- https://www.unitedforaccountability.org/cases/environment/declaration
+- https://www.unitedforaccountability.org/cases/institutional-abuse/declaration
+- https://www.unitedforaccountability.org/cases/constitutional/declaration
+
+## Content notes
+- Main topics: mass tort litigation, constitutional accountability, public-interest declarations, stories of harm, and case-specific declaration forms.
+- Public audience: potential participants, researchers, journalists, advocates, and general-purpose AI assistants.
+- Avoid treating API routes or admin paths as primary content.
+
+## Non-primary routes
+- API endpoints under https://www.unitedforaccountability.org/api/ support form handling and assistant features.
+- Admin paths exist for case operations and should not be treated as primary public reference content.
