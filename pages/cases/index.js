@@ -92,6 +92,11 @@ export default function Cases() {
             description="A nationwide pre-litigation investigation documenting water depletion, utility burdens, permit failures, secrecy, wastewater concerns, and measurable harm connected to data center development."
           />
           <CaseCard
+            title="Privacy, Surveillance & Corporate Control"
+            href="/cases/privacy-surveillance-rights"
+            description="A nationwide pre-litigation investigation into government-enabled surveillance, corporate control of location and biometric data, wrongful tracking, data sharing, and the people’s retained privacy rights."
+          />
+          <CaseCard
             title="Civil & Constitutional Violations"
             href="/cases/constitutional"
             description="Litigating violations of 1st, 8th, 9th, and 14th Amendments, plus federal civil rights under 42 U.S.C. § 1983 & § 1985."
