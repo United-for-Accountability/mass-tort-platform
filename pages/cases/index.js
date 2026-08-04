@@ -8,7 +8,7 @@ export default function Cases() {
     <>
       <Head>
         <title>The People's Docket | United for Accountability</title>
-        <meta name="description" content="Explore active mass tort cases being prepared by United for Accountability. This is where legal evidence becomes action, and systemic harm meets justice." />
+        <meta name="description" content="Explore active lawsuits and pre-litigation investigations being prepared by United for Accountability. This is where legal evidence becomes action, and systemic harm meets justice." />
         <link rel="canonical" href="https://www.unitedforaccountability.org/cases" />
       </Head>
 
@@ -17,8 +17,8 @@ export default function Cases() {
       <main className="max-w-5xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold text-blue-900 mb-4">⚖️ The People’s Docket</h1>
        <p className="text-lg text-gray-700 mb-10">
-       This is the living legal archive of active lawsuits led by <strong>United for Accountability</strong>. 
-       Each case is grounded in documented public harm, constitutional violations, and legal precedent. To assert our right as a unified force for change, we must hold and exercise the rights we retain — together.
+       This is the living legal archive of lawsuits and pre-litigation investigations led by <strong>United for Accountability</strong>. 
+       Each matter is grounded in documented public harm, constitutional questions, and legal precedent. To assert our right as a unified force for change, we must hold and exercise the rights we retain — together.
        <br />
        <br />
        <strong>The 9th Amendment was written for this very moment:</strong> When government fails, when institutions betray, when systems harm — the people have the lawful right to rise.
@@ -85,6 +85,11 @@ export default function Cases() {
             title="Environmental & Extraction Lawsuit"
             href="/cases/environment"
             description="Legal action against environmental racism, corporate pollution, and extraction of public resources for private gain."
+          />
+          <CaseCard
+            title="Data Center Water Rights & Community Harm"
+            href="/cases/data-center-water-rights"
+            description="A nationwide pre-litigation investigation documenting water depletion, utility burdens, permit failures, secrecy, wastewater concerns, and measurable harm connected to data center development."
           />
           <CaseCard
             title="Civil & Constitutional Violations"
