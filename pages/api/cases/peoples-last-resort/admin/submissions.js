@@ -1,3 +1,5 @@
+import { logServerFailure } from '../../../../../lib/serverLogging.mjs';
+import { isDocumentId } from '../../../../../lib/adminValidation.mjs';
 import { collection, doc, getDoc, getDocs, limit, orderBy, query, startAfter } from 'firebase/firestore';
 import { peoplesLastResortCase } from '../../../../../data/contingentCases';
 import { db } from '../../../../../lib/firebase';
@@ -14,8 +16,10 @@ export default async function handler(req, res) {
 
   try {
     const pageSizeRaw = Number(req.query.pageSize ?? 50);
-    const pageSize = Number.isFinite(pageSizeRaw) ? Math.max(1, Math.min(pageSizeRaw, 200)) : 50;
+    const pageSize = Number.isFinite(pageSizeRaw) ? Math.max(1, Math.min(Math.floor(pageSizeRaw), 200)) : 50;
     const cursor = typeof req.query.cursor === 'string' ? req.query.cursor : '';
+
+    if (cursor && !isDocumentId(cursor)) return res.status(400).json({ error: 'Invalid cursor.' });
 
     let submissionsQuery = query(
       collection(db, peoplesLastResortCase.collectionName),
@@ -56,7 +60,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ submissions, nextCursor, hasMore });
   } catch (error) {
-    console.error('Error loading People\'s Last Resort submissions:', error);
+    logServerFailure('Error loading People\'s Last Resort submissions:', error);
     return res.status(500).json({ error: 'Unable to load submissions.' });
   }
 }

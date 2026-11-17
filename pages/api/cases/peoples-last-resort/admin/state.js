@@ -1,3 +1,5 @@
+import { logServerFailure } from '../../../../../lib/serverLogging.mjs';
+import { parseThreshold, isOptionalText } from '../../../../../lib/adminValidation.mjs';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import {
   getPeoplesLastResortState,
@@ -8,19 +10,6 @@ import {
 } from '../../../../../data/contingentCases';
 import { db } from '../../../../../lib/firebase';
 import { assertAdminAuthorized, writeCaseAuditLog } from '../../../../../lib/caseAdmin';
-
-function parseThresholdValue(value) {
-  if (value === '' || value === null || value === undefined) {
-    return null;
-  }
-
-  const threshold = Number(value);
-  if (!Number.isFinite(threshold) || threshold <= 0) {
-    return null;
-  }
-
-  return Math.floor(threshold);
-}
 
 export default async function handler(req, res) {
   if (!assertAdminAuthorized(req, res)) {
@@ -46,12 +35,17 @@ export default async function handler(req, res) {
         explanatoryNotice,
       } = req.body ?? {};
 
-      if (status && !validCaseStatuses.includes(status)) {
+      if (status !== undefined && !validCaseStatuses.includes(status)) {
         return res.status(400).json({ error: 'Invalid case status.' });
       }
 
-      if (courtOutcome && !validCourtOutcomes.includes(courtOutcome)) {
+      if (courtOutcome !== undefined && !validCourtOutcomes.includes(courtOutcome)) {
         return res.status(400).json({ error: 'Invalid court outcome.' });
+      }
+
+      const threshold = thresholdValue === undefined ? null : parseThreshold(thresholdValue);
+      if ((threshold && !threshold.valid) || !isOptionalText(publicBenchmarkLabel, 500) || !isOptionalText(explanatoryNotice, 4000)) {
+        return res.status(400).json({ error: 'Invalid threshold or public notice.' });
       }
 
       const updates = {
@@ -75,7 +69,7 @@ export default async function handler(req, res) {
       }
 
       if (thresholdValue !== undefined) {
-        updates.thresholdValue = parseThresholdValue(thresholdValue);
+        updates.thresholdValue = threshold.value;
       }
 
       await setDoc(stateRef, updates, { merge: true });
@@ -101,7 +95,7 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method Not Allowed' });
   } catch (error) {
-    console.error('Error managing People\'s Last Resort state:', error);
+    logServerFailure('Error managing People\'s Last Resort state:', error);
     return res.status(500).json({ error: 'Unable to manage case state.' });
   }
 }

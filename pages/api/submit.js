@@ -1,3 +1,4 @@
+import { logServerFailure } from '../../lib/serverLogging.mjs';
 import { verifyRecaptcha } from '../../lib/security.mjs';
 import formidable from 'formidable';
 import crypto from 'crypto';
@@ -17,7 +18,7 @@ export default async function handler(req, res) {
   const temporaryFiles = new Set();
   const form = formidable({ multiples: false, maxFiles: 1, maxFields: 60, maxFieldsSize: 256 * 1024, maxFileSize: 10 * 1024 * 1024 });
   form.on('fileBegin', (_name, file) => temporaryFiles.add(file.filepath));
-  form.parse(req, async (err, fields, files) => {
+  await new Promise((resolve) => form.parse(req, async (err, fields, files) => {
     try {
       if (err) return res.status(400).json({ error: 'Invalid form data' });
       const fd = (k) => (fields[k]?.[0] ?? '').toString().trim();
@@ -120,10 +121,11 @@ export default async function handler(req, res) {
 
       res.status(200).json({ ok: true });
     } catch (e) {
-      console.error(e);
+      logServerFailure('Declaration submission failed', e);
       res.status(500).json({ error: 'Server error' });
     } finally {
       await Promise.allSettled([...temporaryFiles].map((filepath) => fs.unlink(filepath)));
+      resolve();
     }
-  });
+  }));
 }
