@@ -1,14 +1,14 @@
-import { useState } from 'react';
-
 export default function SigningForSection({ formData, setFormData }) {
-  const [showAttestation, setShowAttestation] = useState(false);
-  const [needsFile, setNeedsFile] = useState(false);
+  const showAttestation = formData.authority_type === 'No formal document – next of kin attestation';
+  const needsFile = (formData.sign_for === 'minor' && formData.authority_type === 'Legal Guardian') ||
+    (formData.sign_for === 'incapacity' && ['Power of Attorney', 'Court‑Appointed Conservator/Guardian', 'Healthcare Proxy'].includes(formData.authority_type));
 
   const onChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: files ? files[0] : (type === 'checkbox' ? checked : value),
+      ...(name === 'sign_for' ? { authority_type: '', authority_attestation: false, authority_file: null } : {}),
     }));
   };
 
@@ -62,16 +62,8 @@ export default function SigningForSection({ formData, setFormData }) {
               name="authority_type"
               className="border p-2 w-full"
               required
-              onChange={(e) => {
-                onChange(e);
-                const value = e.target.value;
-                setNeedsFile(
-                  (formData.sign_for === 'minor' && value === 'Legal Guardian') ||
-                    (formData.sign_for === 'incapacity' &&
-                      ['Power of Attorney', 'Court‑Appointed Conservator/Guardian', 'Healthcare Proxy'].includes(value))
-                );
-                setShowAttestation(value === 'No formal document – next of kin attestation');
-              }}
+              value={formData.authority_type || ''}
+              onChange={onChange}
             >
               <option value="">Select authority</option>
               {formData.sign_for === 'minor' ? (
@@ -91,7 +83,7 @@ export default function SigningForSection({ formData, setFormData }) {
 
             {showAttestation && (
               <label className="flex items-start gap-2 mt-2">
-                <input type="checkbox" name="authority_attestation" onChange={onChange} required />
+                <input type="checkbox" name="authority_attestation" checked={Boolean(formData.authority_attestation)} onChange={onChange} required />
                 <span>
                   I attest under penalty of perjury that I am next of kin/primary caregiver and the individual
                   cannot consent, and no legally superior representative is available.
