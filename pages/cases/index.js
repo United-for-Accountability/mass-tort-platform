@@ -97,6 +97,11 @@ export default function Cases() {
             description="A nationwide pre-litigation investigation into government-enabled surveillance, corporate control of location and biometric data, wrongful tracking, data sharing, and the people’s retained privacy rights."
           />
           <CaseCard
+            title="Kelo v. City of New London and the Meaning of Public Use"
+            href="/cases/kelo-public-use"
+            description="A constitutional precedent review on eminent domain, working farmland, and whether affected communities should have a binding say."
+          />
+          <CaseCard
             title="Civil & Constitutional Violations"
             href="/cases/constitutional"
             description="Litigating violations of 1st, 8th, 9th, and 14th Amendments, plus federal civil rights under 42 U.S.C. § 1983 & § 1985."
