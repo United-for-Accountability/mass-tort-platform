@@ -59,7 +59,6 @@ export default function KeloPublicUse() {
               <li>Require a demonstrable public use or enforceable duty to serve the public. Economic projections alone would be insufficient.</li>
               <li>Disclose who ultimately owns and controls the applicant, which major customers the project is designed to serve, and what feasible routes were evaluated.</li>
               <li>Require a parcel-specific finding that no feasible, less harmful alternative exists before condemning working farmland, with early participation by farmers and tenants.</li>
-              <li>Consider a binding local vote before compulsory acquisition primarily serving an identified private development. Ask affected communities who should vote and whether any override should exist for an essential regional need.</li>
             </ul>
             <p className="mt-4">
               States may adopt stronger safeguards. Michigan’s constitution excludes takings for transfer
@@ -68,6 +67,48 @@ export default function KeloPublicUse() {
               <a className="ml-1 text-blue-800 underline" href="https://legislature.mi.gov/Laws/MCL?objectName=MCL-ARTICLE-X-2">
                 Read Michigan Constitution Article X, Section 2.
               </a>
+            </p>
+          </section>
+          <section>
+            <h2 className="mb-2 text-2xl font-semibold text-blue-900">What happens when the community votes no?</h2>
+            <p className="mb-3">
+              Existing federal transmission law gives affected landowners and other interested people
+              a reasonable opportunity to present their views. A binding vote would require a change
+              to the law governing the taking, including federal law where federal condemnation
+              authority applies.
+              <a className="ml-1 text-blue-800 underline" href="https://uscode.house.gov/us/usc/119-136/t16/s824p/">
+                Read 16 U.S.C. § 824p(d)–(e).
+              </a>
+            </p>
+            <ul className="list-disc space-y-2 pl-6">
+              <li>
+                Before the vote, publish the route, land impacts, ownership, intended beneficiaries,
+                and feasible alternatives. Give each directly affected community a separate vote so
+                residents elsewhere cannot outvote the people who would bear the direct impacts.
+              </li>
+              <li>
+                If any directly affected community votes no, block condemnation for that route when
+                the project primarily serves an identified private development. A substantially revised
+                route would require new notice and approval from the communities it would affect.
+              </li>
+              <li>
+                For essential regional infrastructure, consider a narrow exception. Require the
+                condemning authority to prove by clear and convincing evidence in court that the
+                project meets an essential public need and that no feasible, less harmful route exists.
+                Give affected people a chance to challenge the evidence and block any taking while
+                the court decides.
+              </li>
+              <li>
+                Preserve each owner’s right to challenge the taking of their parcel and seek just
+                compensation even after a yes vote. Give farm tenants a separate opportunity to
+                document how a taking would affect their operations.
+              </li>
+            </ul>
+            <p className="mt-4">
+              Before settling the proposal, ask affected residents, landowners, farm tenants, and
+              Tribal governments how to draw voting boundaries, who should vote, and whether any
+              override should exist. Preserve Tribal governments’ separate decision-making authority
+              wherever it applies.
             </p>
           </section>
         </div>
