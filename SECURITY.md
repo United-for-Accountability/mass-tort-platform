@@ -88,3 +88,23 @@ and account MFA were not accessible through the connected tools.
 
 Hosting-platform request limits can be lower than the application's 10 MB upload limit;
 large-file support needs a separately reviewed direct-to-private-storage upload flow.
+
+## Public origin behind a reverse proxy
+
+Origin checks must use the browser-facing origin, rather than Next.js's internal
+listening hostname. By default the guard uses `Host` with the request URL's protocol.
+This supports public HTTP hostnames, IP addresses and explicit ports even when Next.js
+constructs an internal URL such as `http://127.0.0.1:3000`.
+
+For a self-hosted deployment that terminates TLS or rewrites `Host` at a reverse proxy,
+set the server-only `APP_PUBLIC_ORIGIN` to the exact public origin, for example
+`https://www.unitedforaccountability.org`. This setting takes precedence over all
+request host/forwarded headers. Use each environment's own origin; a fixed production
+origin will intentionally reject writes from a different preview hostname.
+
+Alternatively, set `TRUST_PROXY_HEADERS=1` only when a trusted proxy overwrites
+`X-Forwarded-Host` and `X-Forwarded-Proto` on every request and direct backend access is
+blocked. This opts into trusting those headers for origin resolution, not client IPs.
+Vercel's platform-supplied forwarded headers are trusted automatically. Without this
+trust, caller-supplied forwarded origin headers are ignored. Invalid origins and
+ambiguous/malformed trusted header values fail closed.

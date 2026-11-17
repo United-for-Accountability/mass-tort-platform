@@ -92,3 +92,44 @@ test('server logs redact arbitrary service messages, bodies and credentials', as
     ]);
   } finally { console.error = original; }
 });
+
+function proxiedRequest({ origin = 'http://example.com', host = 'example.com', forwarded = {} } = {}) {
+  return new Request('http://127.0.0.1:3000/api/ask', {
+    method: 'POST', headers: { host, origin, 'sec-fetch-site': 'same-origin', 'content-type': 'application/json', ...forwarded },
+    body: JSON.stringify({ question: 'Hello' }),
+  });
+}
+
+test('self-hosted browser writes use the public Host rather than Next.js internal hostname', async () => {
+  const guard = createApiGuard({ onVercel: false, trustProxyHeaders: false });
+  assert.equal(await guard(proxiedRequest()), null);
+  assert.equal(await guard(proxiedRequest({ host: '192.0.2.10:8080', origin: 'http://192.0.2.10:8080' })), null);
+  assert.equal((await guard(proxiedRequest({ origin: 'http://evil.example' }))).status, 403);
+  assert.equal((await guard(proxiedRequest({ origin: 'http://example.com:8080' }))).status, 403);
+});
+
+test('configured public origin supports TLS termination and overrides all request host headers', async () => {
+  const guard = createApiGuard({ publicOrigin: 'https://example.com/', onVercel: false, trustProxyHeaders: true });
+  assert.equal(await guard(proxiedRequest({ host: 'backend:3000', origin: 'https://example.com' })), null);
+  assert.equal((await guard(proxiedRequest({ host: 'evil.example', origin: 'https://evil.example', forwarded: { 'x-forwarded-host': 'evil.example', 'x-forwarded-proto': 'https' } }))).status, 403);
+  assert.equal((await guard(proxiedRequest({ origin: 'http://example.com' }))).status, 403);
+});
+
+test('forwarded origin headers require explicit proxy trust or the Vercel platform', async () => {
+  const req = () => proxiedRequest({ host: 'backend:3000', origin: 'https://example.com', forwarded: { 'x-forwarded-host': 'example.com', 'x-forwarded-proto': 'https' } });
+  assert.equal((await createApiGuard({ onVercel: false, trustProxyHeaders: false })(req())).status, 403);
+  assert.equal(await createApiGuard({ onVercel: false, trustProxyHeaders: true })(req()), null);
+  assert.equal(await createApiGuard({ onVercel: true, trustProxyHeaders: false })(req()), null);
+  const spoofed = proxiedRequest({ origin: 'https://evil.example', forwarded: { 'x-forwarded-host': 'evil.example', 'x-forwarded-proto': 'https' } });
+  assert.equal((await createApiGuard({ onVercel: false, trustProxyHeaders: false })(spoofed)).status, 403);
+});
+
+test('invalid configured origins and malformed trusted proxy headers fail closed', async () => {
+  for (const publicOrigin of ['', 'null', 'file:///tmp/test', 'https://user:pass@example.com', 'https://example.com/path', 'https://example.com?query=1']) {
+    assert.equal((await createApiGuard({ publicOrigin })(proxiedRequest())).status, 403);
+  }
+  for (const host of ['example.com, evil.example', 'example.com/path', 'user@example.com', 'example.com#evil']) {
+    const req = proxiedRequest({ forwarded: { 'x-forwarded-host': host, 'x-forwarded-proto': 'http' } });
+    assert.equal((await createApiGuard({ onVercel: true })(req)).status, 403);
+  }
+});

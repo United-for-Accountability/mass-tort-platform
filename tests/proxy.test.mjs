@@ -45,3 +45,14 @@ test('multipart upload passes through proxy without consuming its file stream', 
   assert.equal(parsed.get('signature_name'), 'Test');
   assert.equal(await parsed.get('authority_file').text(), '%PDF-test');
 });
+
+test('Next.js internal URL does not reject same-origin writes to a public hostname', async () => {
+  const request = new NextRequest('http://127.0.0.1:3000/api/save-to-airtable', {
+    method: 'POST', headers: {
+      host: 'example.com', origin: 'http://example.com',
+      'sec-fetch-site': 'same-origin', 'content-type': 'application/json',
+    }, body: JSON.stringify({ summary: '', submitted: true }),
+  });
+  const response = await proxy(request);
+  assert.equal(response.headers.get('x-middleware-next'), '1');
+});
