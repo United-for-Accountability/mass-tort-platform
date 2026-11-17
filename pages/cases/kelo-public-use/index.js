@@ -54,11 +54,38 @@ export default function KeloPublicUse() {
             </p>
           </section>
           <section>
+            <h2 className="mb-2 text-2xl font-semibold text-blue-900">Protect farmland for future generations</h2>
+            <p className="mb-3">
+              <strong>Proposed rule:</strong> Prohibit eminent domain on land in agricultural production
+              or capable of agricultural production. The prohibition would cover the land itself and
+              compulsory easements and rights-of-way. It would apply to public agencies and private
+              entities exercising delegated authority, including for airports, transmission lines,
+              and infrastructure serving data centers. A community vote or regional infrastructure
+              exception could not override this protection.
+            </p>
+            <p className="mb-3">
+              Buildings and pavement can take soil out of agricultural use. Construction can also
+              remove or mix topsoil and compact the layers below it, limiting root growth and water
+              infiltration. Iowa State University researchers documented soil compaction and gradual
+              crop yield recovery over five years after pipeline construction on farmland. Preserving
+              productive land today protects the ability of future generations to grow food.
+            </p>
+            <p className="mb-3">
+              Determine agricultural capability using soil surveys, local production history, and
+              site conditions, with input from farmers and farm tenants. Land that is temporarily
+              fallow or in crop rotation would remain eligible for protection.
+            </p>
+            <ul className="list-disc space-y-2 pl-6">
+              <li><a className="text-blue-800 underline" href="https://www.nrcs.usda.gov/conservation-basics/land/cropland/farmland-protection-policy-act">USDA Farmland Protection Policy Act overview</a></li>
+              <li><a className="text-blue-800 underline" href="https://directives.nrcs.usda.gov/sites/default/files2/1712940852/35715.pdf">USDA guidance on soil sealing and compaction</a></li>
+              <li><a className="text-blue-800 underline" href="https://www.cals.iastate.edu/news/2021/pipeline-study-shows-soil-compaction-and-crop-yield-impacts-construction-right-way">Iowa State University study on construction impacts to cropland</a></li>
+            </ul>
+          </section>
+          <section>
             <h2 className="mb-2 text-2xl font-semibold text-blue-900">Safeguards for public discussion</h2>
             <ul className="list-disc space-y-2 pl-6">
               <li>Require a demonstrable public use or enforceable duty to serve the public. Economic projections alone would be insufficient.</li>
               <li>Disclose who ultimately owns and controls the applicant, which major customers the project is designed to serve, and what feasible routes were evaluated.</li>
-              <li>Require a parcel-specific finding that no feasible, less harmful alternative exists before condemning working farmland, with early participation by farmers and tenants.</li>
             </ul>
             <p className="mt-4">
               States may adopt stronger safeguards. Michigan’s constitution excludes takings for transfer
@@ -92,7 +119,7 @@ export default function KeloPublicUse() {
                 route would require new notice and approval from the communities it would affect.
               </li>
               <li>
-                For essential regional infrastructure, consider a narrow exception. Require the
+                For essential regional infrastructure outside protected farmland, consider a narrow exception. Require the
                 condemning authority to prove by clear and convincing evidence in court that the
                 project meets an essential public need and that no feasible, less harmful route exists.
                 Give affected people a chance to challenge the evidence and block any taking while
