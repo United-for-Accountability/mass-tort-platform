@@ -1,13 +1,8 @@
+import { csvEscape } from '../../../../../lib/security.mjs';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { peoplesLastResortCase } from '../../../../../data/contingentCases';
 import { db } from '../../../../../lib/firebase';
 import { assertAdminAuthorized, writeCaseAuditLog } from '../../../../../lib/caseAdmin';
-
-function csvEscape(value) {
-  const stringValue = (value ?? '').toString();
-  const escaped = stringValue.replace(/"/g, '""');
-  return `"${escaped}"`;
-}
 
 export default async function handler(req, res) {
   if (!assertAdminAuthorized(req, res)) {

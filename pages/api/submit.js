@@ -1,21 +1,12 @@
+import { verifyRecaptcha } from '../../lib/security.mjs';
 import formidable from 'formidable';
 import crypto from 'crypto';
 import { promises as fs } from 'fs';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { app, db, storage } from '../../lib/firebase';
+import { db, storage } from '../../lib/firebase';
 
 export const config = { api: { bodyParser: false } };
-
-const verifyRecaptcha = async (token) => {
-  const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
-  });
-  const data = await res.json();
-  return data.success;
-};
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
@@ -23,10 +14,12 @@ export default async function handler(req, res) {
   const ip = (req.headers['x-forwarded-for'] || '').toString().split(',')[0] || req.socket.remoteAddress || '';
   const ua = req.headers['user-agent'] || '';
 
-  const form = formidable({ multiples: false, maxFileSize: 10 * 1024 * 1024 });
+  const temporaryFiles = new Set();
+  const form = formidable({ multiples: false, maxFiles: 1, maxFields: 60, maxFieldsSize: 256 * 1024, maxFileSize: 10 * 1024 * 1024 });
+  form.on('fileBegin', (_name, file) => temporaryFiles.add(file.filepath));
   form.parse(req, async (err, fields, files) => {
-    if (err) return res.status(400).json({ error: 'Invalid form data' });
     try {
+      if (err) return res.status(400).json({ error: 'Invalid form data' });
       const fd = (k) => (fields[k]?.[0] ?? '').toString().trim();
 
       const token = fd('token');
@@ -38,7 +31,13 @@ export default async function handler(req, res) {
       const signature_name = fd('signature_name');
       const clientSignedAt = fd('clientSignedAt');
       const harmStatement = fd('harmStatement');
-      const harmCategory = fd('harmCategory') ? JSON.parse(fd('harmCategory')) : [];
+      let harmCategory;
+      try { harmCategory = fd('harmCategory') ? JSON.parse(fd('harmCategory')) : []; }
+      catch { return res.status(400).json({ error: 'Invalid harm categories.' }); }
+      if (!Array.isArray(harmCategory) || harmCategory.length > 100 || harmCategory.some((item) => typeof item !== 'string')) {
+        return res.status(400).json({ error: 'Invalid harm categories.' });
+      }
+      if (!['self', 'minor', 'incapacity'].includes(sign_for)) return res.status(400).json({ error: 'Invalid signing capacity.' });
 
       if (!consent_checked || !signature_name) return res.status(400).json({ error: 'Consent and signature are required.' });
 
@@ -49,7 +48,8 @@ export default async function handler(req, res) {
       const isIncapacity = sign_for === 'incapacity';
 
       if (sign_for !== 'self') {
-        if (!authority_type) return res.status(400).json({ error: 'Authority type required.' });
+        const allowed = isMinor ? ['Parent', 'Legal Guardian'] : ['Power of Attorney', 'Court‑Appointed Conservator/Guardian', 'Healthcare Proxy', 'No formal document – next of kin attestation'];
+        if (!allowed.includes(authority_type)) return res.status(400).json({ error: 'Invalid authority type.' });
 
         const needsFile =
           (isMinor && authority_type === 'Legal Guardian') ||
@@ -62,7 +62,12 @@ export default async function handler(req, res) {
           if (!f) return res.status(400).json({ error: 'Proof of authority file required.' });
           const file = f[0];
           const buffer = await fs.readFile(file.filepath);
-          const path = `authority/${Date.now()}-${file.originalFilename}`;
+          const extension = { 'application/pdf': 'pdf', 'image/jpeg': 'jpg', 'image/png': 'png' }[file.mimetype];
+          const validContent = extension === 'pdf' ? buffer.subarray(0, 5).toString() === '%PDF-'
+            : extension === 'jpg' ? buffer.subarray(0, 3).equals(Buffer.from([0xff, 0xd8, 0xff]))
+            : extension === 'png' && buffer.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+          if (!validContent) return res.status(400).json({ error: 'Only PDF, JPG, and PNG authority documents are allowed.' });
+          const path = `authority/${crypto.randomUUID()}.${extension}`;
           await uploadBytes(storageRef(storage, path), buffer, { contentType: file.mimetype });
           authority_file_url = await getDownloadURL(storageRef(storage, path));
         } else if (attestation) {
@@ -117,6 +122,8 @@ export default async function handler(req, res) {
     } catch (e) {
       console.error(e);
       res.status(500).json({ error: 'Server error' });
+    } finally {
+      await Promise.allSettled([...temporaryFiles].map((filepath) => fs.unlink(filepath)));
     }
   });
 }
