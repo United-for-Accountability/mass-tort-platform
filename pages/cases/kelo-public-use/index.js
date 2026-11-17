@@ -82,6 +82,30 @@ export default function KeloPublicUse() {
             </ul>
           </section>
           <section>
+            <h2 className="mb-2 text-2xl font-semibold text-blue-900">What happens if we ignore farmland loss?</h2>
+            <p className="mb-3">
+              A runway or building can take productive soil out of use for decades, and some
+              conversions can be irreversible. Even an easement that leaves most of a farm intact
+              can interrupt irrigation, cut off equipment access, or reduce yields after
+              construction. The loss can extend beyond the acres inside the project boundary if
+              the remaining land becomes harder to farm.
+            </p>
+            <p className="mb-3">
+              When agencies consider one parcel at a time, they can miss what several projects
+              together do to a farming region. Successive takings can leave fewer connected fields
+              and fewer viable places to grow food. That leaves future farmers with fewer options
+              when drought or floods limit what other fields can produce.
+            </p>
+            <p>
+              A compensation payment addresses the property taken. It does not restore the
+              region’s capacity to grow food. Before a route or site is chosen, the public record
+              should show what would happen to the whole farm, how the project adds to other
+              farmland losses in the area, and which feasible sites or routes avoid farmable land.
+              Farmers and farm tenants should help identify those effects while alternatives are
+              still open.
+            </p>
+          </section>
+          <section>
             <h2 className="mb-2 text-2xl font-semibold text-blue-900">Safeguards for public discussion</h2>
             <ul className="list-disc space-y-2 pl-6">
               <li>Require a demonstrable public use or enforceable duty to serve the public. Economic projections alone would be insufficient.</li>
