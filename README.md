@@ -3,7 +3,7 @@ A public-facing platform for the United for Accountability mass tort movement. T
 
 ## Development
 
-This repository uses `npm` as the package manager.
+This repository uses Node.js 24 (see `.nvmrc`) and `npm` as the package manager.
 
 ```bash
 npm ci
@@ -15,6 +15,21 @@ npm run dev
 Run these checks before opening a PR:
 
 ```bash
+npm test
 npm run build
 npm audit
 ```
+
+If a restricted environment prevents Turbopack from starting local workers, run
+`npm run build -- --webpack` to verify the production build with webpack.
+
+## Dependency maintenance
+
+Commit `package-lock.json` with dependency changes and use `npm ci` for reproducible installs.
+The Firestore dependency currently pins an older gRPC release; a scoped override in
+`package.json` selects patched gRPC 1.14.7 or newer. Review this override when upgrading
+Firebase and remove it once Firestore selects a patched version itself.
+
+The regression tests cover admin token comparison, CSV formula injection, strict consent,
+CAPTCHA verification, and submission request validation. Production Firebase rules,
+credentials, and external service configuration require a separate deployment review.

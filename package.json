@@ -7,22 +7,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "update-ai": "node scripts/update-ai-feed.js"
+    "update-ai": "node scripts/update-ai-feed.js",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.5",
     "@vercel/analytics": "^2.0.1",
-    "firebase": "^12.17.0",
+    "firebase": "^12.19.0",
     "formidable": "^3.5.4",
-    "next": "^16.3.0",
-    "openai": "^7.4.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "next": "^16.4.6",
+    "openai": "^7.57.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-google-recaptcha": "^3.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.5.4",
-    "postcss": "^8.5.25",
-    "tailwindcss": "^4.3.3"
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "^1.14.7"
+    }
   }
 }
