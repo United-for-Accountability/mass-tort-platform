@@ -10,7 +10,7 @@
 
   <url>
     <loc>https://www.unitedforaccountability.org/cases</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -244,6 +244,13 @@
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.unitedforaccountability.org/cases/kelo-public-use</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
