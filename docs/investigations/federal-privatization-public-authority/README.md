@@ -51,3 +51,9 @@ These files are drafts prepared for independent attorney review. This repository
 ## Relationship to the Cordova 2028 initiative
 
 Cordova 2028 has published a separate prospective policy framework (the Federal Public Authority, Privatization Transparency, and Accountability Initiative). The two efforts may share verified primary-source research. Neither effort treats the other's policy conclusions as evidence of wrongdoing.
+
+- Initiative: https://www.cordova2028.com/policy-vision/federal-public-authority-privatization-transparency-and-accountability-initiative
+- Announcement: https://www.cordova2028.com/press-release/cordova-2028-releases-plan-to-find-out-who-owns-and-controls-the-federal-government
+- Letter to the Appropriations Committees (Nov. 18, 2026): https://www.cordova2028.com/press-release/cordova-2028-asks-congress-for-oversight-of-the-50-billion-faa-modernization-request
+
+The letter's questions overlap with the FOIA and congressional referral templates in this file. Track any committee response as a new evidence register entry.
