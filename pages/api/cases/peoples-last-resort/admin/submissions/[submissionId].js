@@ -1,3 +1,5 @@
+import { logServerFailure } from '../../../../../../lib/serverLogging.mjs';
+import { isDocumentId, isOptionalText } from '../../../../../../lib/adminValidation.mjs';
 import { doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { peoplesLastResortCase, validVerificationStatuses } from '../../../../../../data/contingentCases';
 import { db } from '../../../../../../lib/firebase';
@@ -13,7 +15,7 @@ export default async function handler(req, res) {
   }
 
   const { submissionId } = req.query;
-  if (!submissionId || typeof submissionId !== 'string') {
+  if (!isDocumentId(submissionId)) {
     return res.status(400).json({ error: 'Submission ID is required.' });
   }
 
@@ -23,7 +25,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid verification status.' });
   }
 
-  const counted = verification_status === 'verified' ? Boolean(counted_toward_threshold) : false;
+  if ((counted_toward_threshold !== undefined && typeof counted_toward_threshold !== 'boolean') || !isOptionalText(review_note, 4000)) {
+    return res.status(400).json({ error: 'Invalid count flag or review note.' });
+  }
+  const counted = verification_status === 'verified' && counted_toward_threshold === true;
 
   try {
     const submissionRef = doc(db, peoplesLastResortCase.collectionName, submissionId);
@@ -52,7 +57,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    console.error('Error updating People\'s Last Resort submission:', error);
+    logServerFailure('Error updating People\'s Last Resort submission:', error);
     return res.status(500).json({ error: 'Unable to update submission.' });
   }
 }

@@ -1,39 +1,11 @@
+import { logServerFailure } from '../../../../lib/serverLogging.mjs';
 import {
   getPeoplesLastResortState,
   mergePeoplesLastResortCaseState,
   peoplesLastResortCase
 } from '../../../../data/contingentCases';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, getCountFromServer, query, where } from 'firebase/firestore';
 import { db } from '../../../../lib/firebase';
-
-function summarizeVerification(snapshot) {
-  let verifiedCount = 0;
-  let pendingCount = 0;
-  let rejectedCount = 0;
-
-  snapshot.forEach((submission) => {
-    const row = submission.data();
-
-    if (row.verification_status === 'verified' && row.counted_toward_threshold) {
-      verifiedCount += 1;
-      return;
-    }
-
-    if (row.verification_status === 'rejected') {
-      rejectedCount += 1;
-      return;
-    }
-
-    pendingCount += 1;
-  });
-
-  return {
-    rawSubmissionCount: snapshot.size,
-    verifiedCount,
-    pendingCount,
-    rejectedCount,
-  };
-}
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -50,8 +22,18 @@ export default async function handler(req, res) {
     const statusData = statusDoc.exists() ? statusDoc.data() : {};
 
     const submissionsRef = collection(db, peoplesLastResortCase.collectionName);
-    const submissionsSnapshot = await getDocs(submissionsRef);
-    const verificationSummary = summarizeVerification(submissionsSnapshot);
+    // Count on the server; public status requests never download private testimony.
+    const [all, verified, rejected] = await Promise.all([
+      getCountFromServer(submissionsRef),
+      getCountFromServer(query(submissionsRef, where('verification_status', '==', 'verified'), where('counted_toward_threshold', '==', true))),
+      getCountFromServer(query(submissionsRef, where('verification_status', '==', 'rejected'))),
+    ]);
+    const verificationSummary = {
+      rawSubmissionCount: all.data().count,
+      verifiedCount: verified.data().count,
+      rejectedCount: rejected.data().count,
+      pendingCount: Math.max(0, all.data().count - verified.data().count - rejected.data().count),
+    };
 
     const state = getPeoplesLastResortState(
       mergePeoplesLastResortCaseState({
@@ -84,7 +66,7 @@ export default async function handler(req, res) {
       updatedAt: statusData.updatedAt ?? null,
     });
   } catch (error) {
-    console.error('Error loading People\'s Last Resort status:', error);
+    logServerFailure('Error loading People\'s Last Resort status:', error);
     return res.status(500).json({ error: 'Unable to load case status.' });
   }
 }
