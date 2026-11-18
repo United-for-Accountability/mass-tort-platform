@@ -97,6 +97,11 @@ export default function Cases() {
             description="A nationwide pre-litigation investigation into government-enabled surveillance, corporate control of location and biometric data, wrongful tracking, data sharing, and the people’s retained privacy rights."
           />
           <CaseCard
+            title="The People's Government: Investigation Into Federal Privatization, Private Control, and the Transfer of Public Authority"
+            href="/cases/federal-privatization-public-authority"
+            description="A pre-litigation investigation into who owns the infrastructure, who controls the decisions, and who answers to the American people when federal functions are contracted out, starting with FAA air traffic control. No complaint has been filed."
+          />
+          <CaseCard
             title="Kelo v. City of New London and the Meaning of Public Use"
             href="/cases/kelo-public-use"
             description="A constitutional precedent review on eminent domain, working farmland, and whether affected communities should have a binding say."
