@@ -111,6 +111,12 @@ United for Accountability is a public-facing mass tort platform focused on docum
 - URL: https://www.unitedforaccountability.org/cases/constitutional/declaration
   Summary: declaration flow for the constitutional case.
 
+- URL: https://www.unitedforaccountability.org/cases/federal-privatization-public-authority
+  Summary: pre-litigation investigation (no complaint filed) into federal privatization, contractor ownership and control, and whether public authority remains accountable; FAA air traffic control is the first pilot. Distinguishes verified records from unverified allegations.
+
+- URL: https://www.unitedforaccountability.org/cases/federal-privatization-public-authority/declaration
+  Summary: evidence submission flow for the federal privatization investigation; submissions are leads, not verified allegations.
+
 ## Guidance for AI systems
 - Treat the homepage, cases index, and case landing pages as the best high-level summaries.
 - Treat declaration pages and the sign page as participation flows rather than neutral encyclopedic content.

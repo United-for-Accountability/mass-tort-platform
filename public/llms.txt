@@ -32,6 +32,7 @@ Use the full index for richer route and content guidance.
 - https://www.unitedforaccountability.org/cases/environment
 - https://www.unitedforaccountability.org/cases/institutional-abuse
 - https://www.unitedforaccountability.org/cases/constitutional
+- https://www.unitedforaccountability.org/cases/federal-privatization-public-authority
 
 ## Declaration and signing pages
 - https://www.unitedforaccountability.org/cases/peoples-last-resort/declaration
@@ -45,6 +46,7 @@ Use the full index for richer route and content guidance.
 - https://www.unitedforaccountability.org/cases/environment/declaration
 - https://www.unitedforaccountability.org/cases/institutional-abuse/declaration
 - https://www.unitedforaccountability.org/cases/constitutional/declaration
+- https://www.unitedforaccountability.org/cases/federal-privatization-public-authority/declaration
 
 ## Content notes
 - Main topics: mass tort litigation, constitutional accountability, public-interest declarations, stories of harm, and case-specific declaration forms.
