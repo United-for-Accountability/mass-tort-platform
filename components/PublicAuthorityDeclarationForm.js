@@ -334,7 +334,7 @@ export default function PublicAuthorityDeclarationForm() {
               disabled={submitting || !recaptchaSiteKey}
               className="w-full bg-blue-700 hover:bg-blue-800 disabled:bg-gray-400 text-white font-semibold py-3 px-4 rounded transition"
             >
-              {submitting ? 'Submitting\u2026' : 'Submit Evidence'}
+              {submitting ? 'Submitting…' : 'Submit Evidence'}
             </button>
           </form>
         </div>

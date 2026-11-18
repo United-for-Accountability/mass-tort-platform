@@ -22,18 +22,18 @@ const labelStyles = {
 };
 
 const sources = [
-  ['E-001', 'U.S. DOT, OMB, FAA \u2014 Joint Letter Regarding Additional ATC Funding (Nov. 17, 2026)', 'https://www.transportation.gov/sites/dot.gov/files/2026-11/Joint%20Letter%20Regarding%20Additional%20ATC%20Funding.pdf'],
-  ['E-002', 'The Heritage Foundation \u2014 Mandate for Leadership 2025, Ch. 19, pp. 632\u2013634', 'https://archive.org/details/2025_MandateForLeadership_FULL'],
-  ['E-003', 'FAA \u2014 Nationwide Ground Stop: Questions and Answers (Nov. 15, 2026)', 'https://www.faa.gov/newsroom/nationwide-ground-stop-questions-and-answers'],
-  ['E-004', 'U.S. GAO \u2014 GAO-26-107992, Air Traffic Control Systems (Sept. 14, 2026)', 'https://www.gao.gov/products/gao-26-107992'],
-  ['E-005', 'Congressional Research Service \u2014 The Private Nondelegation Doctrine, IF13307 (Sept. 8, 2026)', 'https://www.everycrsreport.com/reports/IF13307.html'],
-  ['E-006', "Congressional Research Service \u2014 FCC v. Consumers' Research, LSB11301", 'https://www.everycrsreport.com/reports/LSB11301.html'],
-  ['E-007', 'FAA \u2014 Contract Tower Program', 'https://www.faa.gov/about/office_org/headquarters_offices/ato/service_units/mission_support/faa_contract_tower_program'],
-  ['E-008', 'Federal Acquisition Regulation \u2014 Subpart 7.5, Inherently Governmental Functions', 'https://www.acquisition.gov/far/subpart-7.5'],
-  ['E-010', 'AIN \u2014 FAA Awards ATC Upgrade Integration Contract to Peraton (Dec. 5, 2025)', 'https://www.ainonline.com/aviation-news/air-transport/2025-12-05/faa-awards-atc-upgrade-integration-contract-peraton'],
-  ['E-014', 'Washington Technology \u2014 FAA brings in AT&T for network modernization program (Aug. 2026)', 'https://www.washingtontechnology.com/contracts/2026/08/faa-brings-t-network-modernization-program/415412/'],
-  ['E-016', 'FAA \u2014 Pilot to transition selected contract towers to FAA operation (May 18, 2026)', 'https://faa.gov/newsroom/new-faa-program-moves-strengthen-controller-pipeline-standardize-training'],
-  ['E-019', 'Ballard Spahr \u2014 FinCEN exempts U.S. entities from beneficial ownership reporting (Aug. 24, 2026)', 'https://www.ballardspahr.com/insights/alerts-and-articles/2026/08/fincen-permanently-exempts-us-entities-and-persons-from-beneficial-ownership-reporting'],
+  ['E-001', 'U.S. DOT, OMB, FAA — Joint Letter Regarding Additional ATC Funding (Nov. 17, 2026)', 'https://www.transportation.gov/sites/dot.gov/files/2026-11/Joint%20Letter%20Regarding%20Additional%20ATC%20Funding.pdf'],
+  ['E-002', 'The Heritage Foundation — Mandate for Leadership 2025, Ch. 19, pp. 632–634', 'https://archive.org/details/2025_MandateForLeadership_FULL'],
+  ['E-003', 'FAA — Nationwide Ground Stop: Questions and Answers (Nov. 15, 2026)', 'https://www.faa.gov/newsroom/nationwide-ground-stop-questions-and-answers'],
+  ['E-004', 'U.S. GAO — GAO-26-107992, Air Traffic Control Systems (Sept. 14, 2026)', 'https://www.gao.gov/products/gao-26-107992'],
+  ['E-005', 'Congressional Research Service — The Private Nondelegation Doctrine, IF13307 (Sept. 8, 2026)', 'https://www.everycrsreport.com/reports/IF13307.html'],
+  ['E-006', "Congressional Research Service — FCC v. Consumers' Research, LSB11301", 'https://www.everycrsreport.com/reports/LSB11301.html'],
+  ['E-007', 'FAA — Contract Tower Program', 'https://www.faa.gov/about/office_org/headquarters_offices/ato/service_units/mission_support/faa_contract_tower_program'],
+  ['E-008', 'Federal Acquisition Regulation — Subpart 7.5, Inherently Governmental Functions', 'https://www.acquisition.gov/far/subpart-7.5'],
+  ['E-010', 'AIN — FAA Awards ATC Upgrade Integration Contract to Peraton (Dec. 5, 2025)', 'https://www.ainonline.com/aviation-news/air-transport/2025-12-05/faa-awards-atc-upgrade-integration-contract-peraton'],
+  ['E-014', 'Washington Technology — FAA brings in AT&T for network modernization program (Aug. 2026)', 'https://www.washingtontechnology.com/contracts/2026/08/faa-brings-t-network-modernization-program/415412/'],
+  ['E-016', 'FAA — Pilot to transition selected contract towers to FAA operation (May 18, 2026)', 'https://faa.gov/newsroom/new-faa-program-moves-strengthen-controller-pipeline-standardize-training'],
+  ['E-019', 'Ballard Spahr — FinCEN exempts U.S. entities from beneficial ownership reporting (Aug. 24, 2026)', 'https://www.ballardspahr.com/insights/alerts-and-articles/2026/08/fincen-permanently-exempts-us-entities-and-persons-from-beneficial-ownership-reporting'],
 ];
 
 const verifiedBackground = [
@@ -54,7 +54,7 @@ const verifiedBackground = [
   },
   {
     label: 'Verified',
-    text: 'Project 2025\u2019s Department of Transportation chapter recommends separating the FAA from DOT or, at a minimum, the Air Traffic Organization from the FAA, funding air traffic services through user fees, and operating the FAA more like a business. It describes these as changes requiring legislation. These are proposals; no action implementing them has been identified.',
+    text: 'Project 2025’s Department of Transportation chapter recommends separating the FAA from DOT or, at a minimum, the Air Traffic Organization from the FAA, funding air traffic services through user fees, and operating the FAA more like a business. It describes these as changes requiring legislation. These are proposals; no action implementing them has been identified.',
     ids: 'E-002',
   },
   {
@@ -75,7 +75,7 @@ const questions = [
 
 const tracks = [
   ['A', 'Changes in governmental authority', 'Which functions were transferred, delegated, contracted, or reorganized; under what statute; whether Congress authorized it; whether officials kept required supervision; whether it was disclosed.'],
-  ['B', 'Ownership of essential public infrastructure', 'Who owns equipment, software, communications systems, facilities, and data, and whether ownership limits the government\u2019s ability to replace a contractor.'],
+  ['B', 'Ownership of essential public infrastructure', 'Who owns equipment, software, communications systems, facilities, and data, and whether ownership limits the government’s ability to replace a contractor.'],
   ['C', 'Contractor and beneficial-ownership structures', 'Direct, indirect, and beneficial ownership; voting, contractual, and operational control; passive investment and common institutional ownership, recorded without inferring coordination.'],
   ['D', 'Procurement and financial arrangements', 'Awards, competition, sole-source justifications, modifications, long-term obligations, pricing, performance, conflicts, termination and step-in rights, and audit access.'],
   ['E', 'Public harm and operational dependence', 'Documented service disruptions, cost increases, loss of capability, unlawful employment actions, security failures, and records access, kept separate from speculative risk.'],
@@ -93,7 +93,7 @@ const chronology = [
   ['Dec. 4, 2025', 'Peraton announced as prime integrator', 'Executed contract', 'Under investigation'],
   ['May 18, 2026', 'Pilot moves selected contract towers to FAA staffing', 'Implemented change (toward federal operation)', 'Verified'],
   ['Aug. 11, 2026', 'AT&T awarded lead role on FAA Enterprise Network Services; Verizon moves to support', 'Executed contract', 'Under investigation'],
-  ['Aug. 2026', 'Press reports of FAA concerns about the integrator\u2019s performance', 'Reported, not adjudicated', 'Unverified'],
+  ['Aug. 2026', 'Press reports of FAA concerns about the integrator’s performance', 'Reported, not adjudicated', 'Unverified'],
   ['Sept. 14, 2026', 'GAO-26-107992 issued', 'Oversight finding', 'Verified'],
   ['Nov. 13, 2026', 'Nationwide ground stop', 'Documented service disruption', 'Verified'],
   ['Nov. 17, 2026', '$50.1 billion request to Congress', 'Official announcement (request)', 'Verified'],
@@ -160,13 +160,13 @@ export default function FederalPrivatizationPublicAuthority() {
 
         <div className="mt-6 flex flex-wrap gap-2">
           <span className="inline-flex items-center rounded-full bg-amber-100 border border-amber-300 px-4 py-2 text-sm font-semibold text-amber-900">
-            Pre-Litigation Investigation \u00b7 No complaint has been filed
+            Pre-Litigation Investigation · No complaint has been filed
           </span>
           <span className="inline-flex items-center rounded-full bg-blue-50 border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-900">
             Evidence Gathering / Legal Review Required
           </span>
           <span className="inline-flex items-center rounded-full bg-gray-100 border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-800">
-            United States \u2014 Federal
+            United States — Federal
           </span>
         </div>
 
@@ -199,7 +199,7 @@ export default function FederalPrivatizationPublicAuthority() {
               ['timeline', 'Investigation timeline'],
               ['status', 'Current status and next steps'],
               ['sources', 'Sources and methodology'],
-              ['related', 'Related People\u2019s Docket cases'],
+              ['related', 'Related People’s Docket cases'],
             ].map(([id, name]) => (
               <li key={id}>
                 <a href={`#${id}`} className="text-blue-800 hover:underline">
@@ -551,7 +551,7 @@ export default function FederalPrivatizationPublicAuthority() {
 
         <Section id="status" title="16. Current status and next steps">
           <p>
-            <strong>Status:</strong> Pre-Litigation Investigation \u00b7 Evidence Gathering / Legal Review Required. No complaint has
+            <strong>Status:</strong> Pre-Litigation Investigation · Evidence Gathering / Legal Review Required. No complaint has
             been filed. No defendants or plaintiffs have been identified. This page will be updated as records arrive, and
             corrections will be labeled and dated.
           </p>
@@ -576,13 +576,13 @@ export default function FederalPrivatizationPublicAuthority() {
           </p>
         </Section>
 
-        <Section id="related" title="18. Related People\u2019s Docket cases">
+        <Section id="related" title="18. Related People’s Docket cases">
           <ul className="list-disc pl-6 space-y-2">
             <li>
               <Link href="/cases/unauthorized-rule" className="text-blue-700 hover:underline">
-                Unauthorized Rule: The People\u2019s Right to Reject Corporate Capture of Government
+                Unauthorized Rule: The People’s Right to Reject Corporate Capture of Government
               </Link>{' '}
-              \u2014 a broader corporate-capture matter. This investigation is narrower and record-specific.
+              — a broader corporate-capture matter. This investigation is narrower and record-specific.
             </li>
             <li>
               <Link href="/cases/corporate-congressional-influence-and-systemic-disenfranchisement" className="text-blue-700 hover:underline">
@@ -601,6 +601,29 @@ export default function FederalPrivatizationPublicAuthority() {
             </li>
           </ul>
           <p className="text-sm text-gray-600">These matters are linked for readers. Their records and claims remain separate.</p>
+          <h3 className="text-xl font-semibold text-blue-900 mt-6">Related public correspondence and policy</h3>
+          <p>
+            On November 18, 2026, Cordova 2028 sent a formal letter to the leaders of the House and Senate Appropriations
+            Committees requesting oversight of the $50.1 billion request, and published a separate, prospective policy framework.
+            These are listed for context. This investigation does not treat any policy proposal or advocacy letter as evidence.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <a href="https://www.cordova2028.com/press-release/cordova-2028-asks-congress-for-oversight-of-the-50-billion-faa-modernization-request" target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
+                Letter to the Appropriations Committees and announcement (Nov. 18, 2026)
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cordova2028.com/press-release/cordova-2028-releases-plan-to-find-out-who-owns-and-controls-the-federal-government" target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
+                Announcement of the Federal Public Authority, Privatization Transparency, and Accountability Initiative
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cordova2028.com/policy-vision/federal-public-authority-privatization-transparency-and-accountability-initiative" target="_blank" rel="noreferrer" className="text-blue-700 hover:underline">
+                The initiative (discussion draft)
+              </a>
+            </li>
+          </ul>
         </Section>
 
         <section className="border-t border-gray-300 pt-6 mt-12 text-sm text-gray-600">
