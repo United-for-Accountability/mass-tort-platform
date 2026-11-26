@@ -1,3 +1,4 @@
+import { logServerFailure } from '../../../../lib/serverLogging.mjs';
 import { verifyRecaptcha, hasRequiredConsent } from '../../../../lib/security.mjs';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../../../lib/firebase';
@@ -98,7 +99,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true, id: submissionRef.id });
   } catch (error) {
-    console.error('Error submitting People\'s Last Resort declaration:', error);
+    logServerFailure('Error submitting People\'s Last Resort declaration:', error);
     return res.status(500).json({ error: 'Unable to submit declaration.' });
   }
 }

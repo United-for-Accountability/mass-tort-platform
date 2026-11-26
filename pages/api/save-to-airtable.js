@@ -1,3 +1,4 @@
+import { logServerFailure } from '../../lib/serverLogging.mjs';
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') {
@@ -33,15 +34,15 @@ export default async function handler(req, res) {
       }),
     });
 
-    const result = await airtableRes.json();
+    await airtableRes.json();
     if (!airtableRes.ok) {
       res.status(502).json({ success: false, error: 'Unable to save submission.' });
       return;
     }
 
-    res.status(200).json({ success: true, result });
+    res.status(200).json({ success: true });
   } catch (err) {
-    console.error("Airtable error:", err);
+    logServerFailure("Airtable error:", err);
     res.status(500).json({ success: false, error: 'Unable to save submission.' });
   }
 }

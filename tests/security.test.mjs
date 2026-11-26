@@ -79,6 +79,7 @@ test('declaration route rejects string consent without writing to Firestore', as
     const hasRequiredConsent = (values) => values.every((value) => value === true);
     const addDoc = () => { throw new Error('Unexpected database write'); };
     const peoplesLastResortCase = {};
+    const logServerFailure = () => {};
     ${source}`;
   const { default: handler } = await import('data:text/javascript,' + encodeURIComponent(source));
   const body = {

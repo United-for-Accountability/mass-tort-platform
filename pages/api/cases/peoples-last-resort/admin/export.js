@@ -1,3 +1,4 @@
+import { logServerFailure } from '../../../../../lib/serverLogging.mjs';
 import { csvEscape } from '../../../../../lib/security.mjs';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { peoplesLastResortCase } from '../../../../../data/contingentCases';
@@ -69,7 +70,7 @@ export default async function handler(req, res) {
     res.setHeader('Content-Disposition', `attachment; filename="peoples-last-resort-verified-${timestamp}.csv"`);
     return res.status(200).send(lines.join('\n'));
   } catch (error) {
-    console.error('Error exporting verified submissions:', error);
+    logServerFailure('Error exporting verified submissions:', error);
     return res.status(500).json({ error: 'Unable to export verified submissions.' });
   }
 }
