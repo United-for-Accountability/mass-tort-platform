@@ -111,6 +111,11 @@ export default function Cases() {
             href="/cases/constitutional"
             description="Litigating violations of 1st, 8th, 9th, and 14th Amendments, plus federal civil rights under 42 U.S.C. § 1983 & § 1985."
           />
+          <CaseCard
+            title="Territorial Equality and Equal Protection"
+            href="/cases/territorial-equal-protection"
+            description="A pre-litigation constitutional and statutory investigation into territorial classifications, fundamental rights, and equal access to federal programs. Examines Puerto Rico and every U.S. territory regardless of acquisition date. No complaint has been filed."
+          />
         </div>
       </main>
 
