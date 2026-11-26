@@ -36,7 +36,7 @@ These decisions do not support saying that territorial residents have no constit
 
 ### Authorities
 
-- [U.S. Constitution Annotated: Fifth Amendment](https://constitution.congress.gov/browse/amendment-05/)
+- [U.S. Constitution Annotated: Fifth Amendment](https://constitution.congress.gov/constitution/amendment-5/)
 - [U.S. Constitution Annotated: Territorial Clause](https://constitution.congress.gov/browse/article-4/section-3/clause-2/)
 - [*Torres v. Puerto Rico*, 442 U.S. 465 (1979), U.S. Reports PDF](https://tile.loc.gov/storage-services/service/ll/usrep/usrep442/usrep442465/usrep442465.pdf)
 - [*United States v. Vaello Madero*, 596 U.S. 159 (2022), Supreme Court opinion](https://www.supremecourt.gov/opinions/21pdf/20-303_new_21o2.pdf)
