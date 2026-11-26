@@ -34,7 +34,7 @@ const sources = [
   ['Downes v. Bidwell, 182 U.S. 244 (1901)', 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep182/usrep182244/usrep182244.pdf', 'An Insular Case forming part of the historical framework for differentiated constitutional treatment of certain territories.'],
   ['Balzac v. Porto Rico, 258 U.S. 298 (1922)', 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep258/usrep258298/usrep258298.pdf', 'Applied the then-existing territorial doctrine to a jury-trial question in Puerto Rico.'],
   ['U.S. Constitution Annotated: Territorial Clause', 'https://constitution.congress.gov/browse/article-4/section-3/clause-2/', 'Congress has authority to govern U.S. territories, subject to constitutional limitations.'],
-  ['U.S. Constitution Annotated: Fifth Amendment', 'https://constitution.congress.gov/browse/amendment-05/', 'The Fifth Amendment constrains federal action; equal protection against the federal government is analyzed through its Due Process Clause.'],
+  ['U.S. Constitution Annotated: Fifth Amendment', 'https://constitution.congress.gov/constitution/amendment-5/', 'The Fifth Amendment constrains federal action; equal protection against the federal government is analyzed through its Due Process Clause.'],
 ];
 
 export default function TerritorialEqualProtectionCase() {
