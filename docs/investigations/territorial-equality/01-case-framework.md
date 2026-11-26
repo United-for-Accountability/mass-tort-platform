@@ -14,6 +14,8 @@ The core position of this investigation is:
 
 > **No person should lose a fundamental right, equal legal protection, or otherwise available federal benefit solely because the person resides in a U.S. territory or because of the date or circumstances by which that territory came under U.S. sovereignty.**
 
+Whenever federal law or authority governs people in a U.S. territory, they must receive equal treatment under the constitutional protections that apply to them and meaningful participation and representation in federal decisions that bind them. No one should be governed by federal power without equal protection and an effective voice. This does not predetermine any territory's political status; residents must be able to determine their future through a fair process, and any change to formal congressional or presidential representation must follow lawful constitutional processes.
+
 This case will test that principle against actual statutes, agency decisions, documented injuries, and controlling precedent. It does not assume that every territorial distinction is unlawful or that the present record establishes a justiciable claim.
 
 ## 2. Legal framework
@@ -157,7 +159,7 @@ Territorial status, historical practice, administrative convenience, or acquisit
 
 (b) Equal protection, fundamental rights, and federal program parity may not be conditioned on the outcome of any status process.
 
-(c) The federal government shall pursue meaningful federal participation and representation for territorial residents. Any change to presidential electors or voting representation in Congress must comply with the Constitution; where amendment is required, the United States should advance that process openly.
+(c) The federal government shall ensure meaningful participation by territorial residents in federal decisions that govern them and pursue meaningful federal representation. No person should be governed by federal law or authority without equal treatment under applicable constitutional protections and an effective voice in decisions affecting their rights and benefits. Each territory's residents must determine their political future; this subsection does not predetermine statehood or any other status. Any change to presidential electors or voting representation in Congress must comply with the Constitution; where amendment is required, the United States should advance that process openly.
 
 **SEC. 8. EXECUTIVE IMPLEMENTATION.**  
 The President shall direct the executive branch to identify and remedy unlawful territorial exclusions, defend the constitutional rights of persons residing in every U.S. jurisdiction, recommend legislation needed to achieve parity, and report annually to Congress and the public on measurable progress.
@@ -186,7 +188,7 @@ United for Accountability calls on Congress and the executive branch to:
 3. provide a public, evidence-based explanation and review date for every distinction;
 4. enact federal program parity where Congress has discretion;
 5. defend applicable constitutional protections for every person under federal authority;
-6. consult territorial residents and governments on implementation and political status; and
+6. ensure meaningful participation and representation in federal decisions affecting territorial residents, and consult residents and territorial governments on implementation and political status; and
 7. pursue constitutional amendment if the Supreme Court holds that the Constitution itself permits a fundamental-rights exclusion based solely on territorial status.
 
 ## 9. Current status

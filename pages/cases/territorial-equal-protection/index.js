@@ -99,6 +99,9 @@ export default function TerritorialEqualProtectionCase() {
           <p className="text-lg font-semibold leading-8 text-slate-950">
             Our position is that territorial status alone must not be accepted as a permanent license to withhold fundamental rights or equal dignity. Where Congress has discretion, it should enact parity. Where agencies have created unjustified exclusions, they must identify and remedy them. Where current precedent permits unequal treatment, it must be confronted honestly and changed through lawful legislation, litigation, or constitutional amendment when necessary.
           </p>
+          <p className="text-lg leading-8">
+            Whenever federal law or authority governs people in a U.S. territory, those people must receive equal treatment under the constitutional protections that apply to them and meaningful participation and representation in federal decisions that bind them. No one should be governed by federal power without equal protection and an effective voice. Each territory’s residents must determine their political future; this position does not predetermine statehood or any other status, and any change to formal congressional or presidential representation must follow lawful constitutional processes.
+          </p>
         </section>
 
         <section className="mt-14">
@@ -180,7 +183,7 @@ export default function TerritorialEqualProtectionCase() {
             ))}
           </div>
           <p className="mt-5 text-sm text-cyan-950">
-            Local self-government may shape how programs are delivered; it must not be presumed to mean that residents consent to fewer rights. Any change to presidential electors or congressional voting representation must comply with the Constitution and may require amendment.
+            Local self-government may shape how programs are delivered; it must not be presumed to mean that residents consent to fewer rights. When federal law or authority governs territorial residents, they must have equal treatment under applicable constitutional protections and meaningful participation and representation in federal decisions that bind them. Each territory’s residents must determine their political future. Any change to presidential electors or congressional voting representation must comply with the Constitution and may require amendment.
           </p>
         </section>
 
